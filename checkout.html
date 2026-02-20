@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Checkout - Madhav Prajapati Art | Handcrafted Clay Diyas</title>
+  <meta name="description" content="Complete your purchase of handcrafted clay diyas. Secure checkout with multiple payment options.">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="madhav-logo.svg">
+  <link rel="apple-touch-icon" href="madhav-logo.svg">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Checkout - Madhav Prajapati Art">
+  <meta property="og:description" content="Complete your purchase of handcrafted clay diyas.">
+  <meta property="og:image" content="madhav-logo.svg">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="120">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madhavprajapati.art/checkout">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Checkout - Madhav Prajapati Art">
+  <meta name="twitter:description" content="Complete your purchase of handcrafted clay diyas.">
+  <meta name="twitter:image" content="madhav-logo.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  
+  <style>
+    /* ===== CHECKOUT PAGE SPECIFIC STYLES ===== */
+    
+    /* Checkout Page Container */
+    .checkout-page {
+      min-height: 60vh;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .checkout-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .checkout-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0F0F0F;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .checkout-header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+    
+    /* Checkout Steps */
+    .checkout-steps {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      position: relative;
+    }
+    
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -1.5rem;
+      width: 30px;
+      height: 2px;
+      background: #E0E0E0;
+    }
+    
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #F0F0F0;
+      color: #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .step.active .step-number {
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      box-shadow: 0 4px 12px rgba(212,175,55,0.3);
+    }
+    
+    .step.completed .step-number {
+      background: #28A745;
+      color: white;
+    }
+    
+    .step-label {
+      font-weight: 500;
+      color: #666;
+    }
+    
+    .step.active .step-label {
+      color: #D4AF37;
+      font-weight: 600;
+    }
+    
+    /* Checkout Layout */
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 2rem;
+      align-items: start;
+    }
+    
+    /* Checkout Form Section */
+    .checkout-form-section {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    
+    .form-section {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #E9ECEF;
+    }
+    
+    .form-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .form-section h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .form-section h2 i {
+      color: #D4AF37;
+    }
+    
+    /* Form Grid */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #666;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+    }
+    
+    .form-control.error {
+      border-color: #DC3545;
+    }
+    
+    .error-message {
+      color: #DC3545;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+    }
+    
+    /* Radio & Checkbox Styles */
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .radio-label,
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    
+    .radio-label:hover,
+    .checkbox-label:hover {
+      background: rgba(212,175,55,0.05);
+    }
+    
+    .radio-label input[type="radio"],
+    .checkbox-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #D4AF37;
+    }
+    
+    /* Payment Methods */
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .payment-method {
+      border: 1px solid #E0E0E0;
+      border-radius: 12px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .payment-method:hover {
+      border-color: #D4AF37;
+      background: rgba(212,175,55,0.05);
+    }
+    
+    .payment-method.selected {
+      border-color: #D4AF37;
+      background: rgba(212,175,55,0.1);
+      box-shadow: 0 4px 12px rgba(212,175,55,0.1);
+    }
+    
+    .payment-method input[type="radio"] {
+      display: none;
+    }
+    
+    .payment-method-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .payment-method-content i {
+      font-size: 1.5rem;
+      color: #D4AF37;
+    }
+    
+    .payment-method-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 0.25rem;
+    }
+    
+    .payment-method-content p {
+      font-size: 0.8rem;
+      color: #666;
+    }
+    
+    /* Order Summary Sidebar */
+    .checkout-sidebar {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,175,55,0.1);
+      position: sticky;
+      top: 100px;
+    }
+    
+    .order-summary h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #E9ECEF;
+    }
+    
+    .order-items {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 1.5rem;
+      padding-right: 0.5rem;
+    }
+    
+    .order-item {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #F0F0F0;
+    }
+    
+    .order-item:last-child {
+      border-bottom: none;
+    }
+    
+    .order-item-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    
+    .order-item-details {
+      flex: 1;
+    }
+    
+    .order-item-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 0.25rem;
+    }
+    
+    .order-item-price {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .order-item-quantity {
+      font-size: 0.85rem;
+      color: #D4AF37;
+      font-weight: 500;
+    }
+    
+    .order-item-total {
+      font-weight: 600;
+      color: #D4AF37;
+    }
+    
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      color: #666;
+    }
+    
+    .summary-row.total {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 2px solid #E9ECEF;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0F0F0F;
+    }
+    
+    .summary-row.total span:last-child {
+      color: #D4AF37;
+    }
+    
+    .summary-row.discount {
+      color: #28A745;
+    }
+    
+    /* Place Order Button */
+    .place-order-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 1.5rem 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    
+    .place-order-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+    }
+    
+    .place-order-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    /* Secure Checkout Badge */
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: #666;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+    
+    .secure-badge i {
+      color: #28A745;
+    }
+    
+    /* Back to Cart Link */
+    .back-to-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      transition: color 0.2s ease;
+    }
+    
+    .back-to-cart:hover {
+      color: #D4AF37;
+    }
+    
+    /* Success State */
+    .order-success {
+      text-align: center;
+      padding: 3rem;
+    }
+    
+    .order-success i {
+      font-size: 5rem;
+      color: #28A745;
+      margin-bottom: 1.5rem;
+    }
+    
+    .order-success h2 {
+      font-size: 2rem;
+      color: #0F0F0F;
+      margin-bottom: 1rem;
+    }
+    
+    .order-success p {
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    
+    .order-success .order-number {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #D4AF37;
+      margin: 1rem 0;
+    }
+    
+    .success-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    
+    /* Loading Spinner */
+    .loading-spinner {
+      text-align: center;
+      padding: 3rem;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(212,175,55,0.1);
+      border-top-color: #D4AF37;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      .checkout-form-section,
+      .checkout-sidebar {
+        background: #1A1A1A;
+        border-color: rgba(212,175,55,0.1);
+      }
+      
+      .checkout-header h1,
+      .form-section h2,
+      .order-summary h3,
+      .order-item-name,
+      .order-success h2 {
+        color: #FFFFFF;
+      }
+      
+      .checkout-header p,
+      .form-label,
+      .order-item-price,
+      .summary-row,
+      .secure-badge,
+      .back-to-cart,
+      .order-success p {
+        color: #CCCCCC;
+      }
+      
+      .form-section,
+      .order-item,
+      .summary-row.total {
+        border-color: #2D2D2D;
+      }
+      
+      .form-control {
+        background: #2D2D2D;
+        border-color: #404040;
+        color: #FFFFFF;
+      }
+      
+      .payment-method {
+        background: #2D2D2D;
+        border-color: #404040;
+      }
+      
+      .payment-method-content h4 {
+        color: #FFFFFF;
+      }
+      
+      .step:not(:last-child)::after {
+        background: #404040;
+      }
+      
+      .step-number {
+        background: #2D2D2D;
+        color: #CCCCCC;
+      }
+      
+      .step-label {
+        color: #CCCCCC;
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .checkout-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .checkout-sidebar {
+        position: static;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .checkout-page {
+        padding: 1rem;
+      }
+      
+      .checkout-header h1 {
+        font-size: 2rem;
+      }
+      
+      .checkout-steps {
+        gap: 1rem;
+      }
+      
+      .step:not(:last-child)::after {
+        width: 15px;
+        right: -1rem;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      
+      .payment-methods {
+        grid-template-columns: 1fr;
+      }
+      
+      .success-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- App will be mounted here -->
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p style="color: #D4AF37;">Loading secure checkout...</p>
+    </div>
+  </div>
+  
+  <!-- Main Script -->
+  <script type="module" src="app.js"></script>
+  
+  <!-- Fallback Script -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // Fallback if app.js fails to load
+      setTimeout(function() {
+        const app = document.getElementById('app');
+        if (app && app.children.length === 1 && app.children[0].className === 'loading-spinner') {
+          console.warn('App failed to load - showing fallback checkout page');
+          
+          // Check if user is logged in
+          const isLoggedIn = localStorage.getItem('user') ? true : false;
+          
+          if (!isLoggedIn) {
+            app.innerHTML = `
+              <div style="max-width: 500px; margin: 0 auto; padding: 2rem; text-align: center;">
+                <i class="fas fa-lock" style="font-size: 3rem; color: #D4AF37; margin-bottom: 1rem;"></i>
+                <h2 style="margin-bottom: 1rem;">Please Login to Continue</h2>
+                <p style="color: #666; margin-bottom: 2rem;">You need to be logged in to proceed with checkout.</p>
+                <a href="/#login" style="display: inline-block; padding: 0.75rem 2rem; background: linear-gradient(135deg, #D4AF37, #FF8C42); color: white; text-decoration: none; border-radius: 50px; font-weight: 600;">Login</a>
+              </div>
+            `;
+          } else {
+            app.innerHTML = `
+              <div style="max-width: 600px; margin: 0 auto; padding: 2rem; text-align: center;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #DC3545; margin-bottom: 1rem;"></i>
+                <h2 style="margin-bottom: 1rem;">Checkout Unavailable</h2>
+                <p style="color: #666; margin-bottom: 2rem;">The checkout system is currently unavailable. Please try again later or contact support.</p>
+                <a href="/#cart" style="color: #D4AF37;">Return to Cart</a>
+              </div>
+            `;
+          }
+        }
+      }, 3000);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Madhav Prajapati Art | Handcrafted Clay Diyas from Bagwali, Panchkula</title>
+  <meta name="description" content="Discover luxury handcrafted clay diyas by Madhav Prajapati Art. Traditional craftsmanship meets modern elegance. Made in Bagwali, Panchkula.">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="madhav-logo.svg">
+  <link rel="apple-touch-icon" href="madhav-logo.svg">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Madhav Prajapati Art - Handcrafted Clay Diyas">
+  <meta property="og:description" content="Luxury handcrafted clay diyas from Bagwali, Panchkula. Illuminate your space with tradition.">
+  <meta property="og:image" content="madhav-logo.svg">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="120">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madhavprajapati.art">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Madhav Prajapati Art">
+  <meta name="twitter:description" content="Handcrafted clay diyas from Bagwali, Panchkula">
+  <meta name="twitter:image" content="madhav-logo.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  
+  <style>
+    /* ===== HOME PAGE SPECIFIC STYLES ===== */
+    
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-md);
+      background: linear-gradient(135deg, rgba(15,15,15,0.9) 0%, rgba(212,175,55,0.8) 100%);
+      color: var(--white);
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+      animation: fadeInUp 1s ease;
+    }
+    
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 800;
+      margin-bottom: var(--spacing-md);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      margin-bottom: var(--spacing-lg);
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    
+    .floating-diyas {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .floating-diya {
+      position: absolute;
+      font-size: 60px;
+      opacity: 0.15;
+      animation: float 20s infinite linear;
+    }
+    
+    .floating-diya:nth-child(1) {
+      top: 10%;
+      left: 10%;
+      transform: rotate(-15deg);
+      animation-delay: 0s;
+    }
+    
+    .floating-diya:nth-child(2) {
+      bottom: 15%;
+      right: 15%;
+      font-size: 80px;
+      transform: rotate(25deg);
+      animation-delay: 5s;
+    }
+    
+    .floating-diya:nth-child(3) {
+      top: 30%;
+      right: 25%;
+      font-size: 50px;
+      transform: rotate(45deg);
+      animation-delay: 2s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(var(--rotate, 0deg)); }
+      50% { transform: translateY(-30px) rotate(var(--rotate, 0deg)); }
+    }
+    
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto var(--spacing-xl);
+      padding: 0 var(--spacing-md);
+    }
+    
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: var(--spacing-sm);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--orange));
+      border-radius: var(--radius-full);
+    }
+    
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      font-weight: 300;
+    }
+    
+    /* Featured Section */
+    .featured-section {
+      padding: var(--spacing-xxl) var(--spacing-md);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    /* Categories Section */
+    .categories-section {
+      padding: var(--spacing-xxl) var(--spacing-md);
+      background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+    }
+    
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .category-card {
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    
+    .category-image {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: var(--spacing-sm);
+      box-shadow: var(--shadow-soft);
+      transition: all var(--transition-base);
+      position: relative;
+    }
+    
+    .category-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(255,140,66,0.2));
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+    
+    .category-card:hover .category-image {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .category-card:hover .category-image::after {
+      opacity: 1;
+    }
+    
+    .category-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    
+    .category-card:hover .category-image img {
+      transform: scale(1.1);
+    }
+    
+    .category-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--black);
+      transition: color var(--transition-fast);
+    }
+    
+    .category-card:hover h3 {
+      color: var(--gold);
+    }
+    
+    /* Festival Banner */
+    .festival-banner {
+      margin: var(--spacing-xl) auto;
+      max-width: 1200px;
+      padding: var(--spacing-lg) var(--spacing-xl);
+      background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .festival-banner::before {
+      content: '🪔';
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      font-size: 200px;
+      opacity: 0.1;
+      transform: rotate(-15deg);
+      pointer-events: none;
+    }
+    
+    .festival-banner::after {
+      content: '🪔';
+      position: absolute;
+      left: -30px;
+      top: -30px;
+      font-size: 180px;
+      opacity: 0.08;
+      transform: rotate(25deg);
+      pointer-events: none;
+    }
+    
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .banner-content h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: var(--spacing-xs);
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .banner-content p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: var(--spacing-md);
+      max-width: 500px;
+    }
+    
+    .banner-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      padding: var(--spacing-xxl) var(--spacing-md);
+      background: var(--white);
+    }
+    
+    .testimonials-slider {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-card {
+      background: var(--white);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(212,175,55,0.1);
+      transition: all var(--transition-base);
+      position: relative;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-medium);
+      border-color: rgba(212,175,55,0.3);
+    }
+    
+    .testimonial-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #4A4A4A;
+      margin-bottom: var(--spacing-md);
+      font-style: italic;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .testimonial-text::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -5px;
+      font-size: 3rem;
+      color: var(--gold);
+      opacity: 0.3;
+      font-family: serif;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+    
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+    
+    .author-info h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+    }
+    
+    .author-info p {
+      font-size: 0.85rem;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    
+    .author-info p i {
+      color: var(--gold);
+    }
+    
+    /* Footer */
+    .luxury-footer {
+      background: #0F0F0F;
+      color: #FFFFFF;
+      padding: var(--spacing-xxl) var(--spacing-md) var(--spacing-lg);
+      margin-top: var(--spacing-xxl);
+    }
+    
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1.5fr 3fr;
+      gap: var(--spacing-xxl);
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .logo-madhav {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #FFFFFF;
+      text-transform: uppercase;
+    }
+    
+    .logo-art {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 4px;
+      color: #D4AF37;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    
+    .footer-tagline {
+      color: #999;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+    
+    .footer-location {
+      color: #999;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .footer-location i {
+      color: #D4AF37;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: #D4AF37;
+      transform: translateY(-3px);
+    }
+    
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-xl);
+    }
+    
+    .link-group h4 {
+      color: #D4AF37;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .link-group ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .link-group li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .link-group a {
+      color: #999;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    
+    .link-group a:hover {
+      color: #D4AF37;
+    }
+    
+    .contact-info li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #999;
+      font-size: 0.9rem;
+    }
+    
+    .contact-info i {
+      color: #D4AF37;
+      width: 16px;
+    }
+    
+    .contact-info a {
+      color: #999;
+    }
+    
+    .contact-info a:hover {
+      color: #D4AF37;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--spacing-lg);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .footer-bottom p {
+      color: #666;
+      font-size: 0.85rem;
+    }
+    
+    .payment-icons {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .payment-icons i {
+      font-size: 1.5rem;
+      color: #666;
+      transition: color 0.2s ease;
+    }
+    
+    .payment-icons i:hover {
+      color: #D4AF37;
+    }
+    
+    /* Virtual Diya */
+    .virtual-diya {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 99;
+      cursor: pointer;
+    }
+    
+    .diya-container {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .diya-container:hover {
+      transform: scale(1.1);
+    }
+    
+    .diya-base {
+      width: 60px;
+      height: 30px;
+      background: linear-gradient(135deg, #8B4513, #5D3A1A);
+      border-radius: 0 0 50% 50%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    .diya-flame {
+      position: absolute;
+      top: 10px;
+      width: 20px;
+      height: 40px;
+      background: linear-gradient(135deg, #FFE55C, #FF8C42);
+      border-radius: 50% 50% 20% 20%;
+      animation: flicker 1.5s infinite alternate;
+      filter: drop-shadow(0 0 10px rgba(255,140,66,0.5));
+    }
+    
+    @keyframes flicker {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+    
+    /* Dark Mode Support */
+    @media (prefers-color-scheme: dark) {
+      .section-title {
+        color: #FFFFFF;
+      }
+      
+      .section-subtitle {
+        color: #CCCCCC;
+      }
+      
+      .testimonial-card {
+        background: #1A1A1A;
+      }
+      
+      .testimonial-text {
+        color: #CCCCCC;
+      }
+      
+      .author-info h4 {
+        color: #FFFFFF;
+      }
+      
+      .testimonials {
+        background: #0F0F0F;
+      }
+      
+      .category-card h3 {
+        color: #FFFFFF;
+      }
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+      }
+      
+      .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .hero-cta .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .festival-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-lg);
+      }
+      
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .virtual-diya {
+        bottom: 1rem;
+        right: 1rem;
+        width: 60px;
+        height: 60px;
+      }
+    }
+    
+    /* Loading Spinner */
+    .loading-spinner {
+      text-align: center;
+      padding: 4rem;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(212,175,55,0.1);
+      border-top-color: #D4AF37;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #333;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      font-size: 14px;
+      border-left: 4px solid #D4AF37;
+    }
+    
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    /* Quick View Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal.show {
+      display: flex;
+    }
+    
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      animation: slideUp 0.3s ease;
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #999;
+    }
+    
+    .close-modal:hover {
+      color: #333;
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Product Card Updates */
+    .product-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    
+    .product-actions .btn {
+      flex: 1;
+      padding: 8px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- ===== STATIC FALLBACK HOMEPAGE ===== -->
+    <header class="luxury-header glass-effect">
+      <div class="header-container">
+        <button class="menu-toggle" id="menuToggleStatic" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        <div class="logo" onclick="navigateTo('home')" style="cursor: pointer;">
+          <div class="logo-text-wrapper">
+            <span class="logo-madhav">MADHAV PRAJAPATI</span>
+            <span class="logo-art">ART</span>
+          </div>
+        </div>
+        <nav class="main-nav" id="mainNavStatic">
+          <ul class="nav-list">
+            <li><a href="javascript:void(0)" onclick="navigateTo('home')" class="nav-link active">Home</a></li>
+            <li><a href="javascript:void(0)" onclick="navigateTo('products')" class="nav-link">Products</a></li>
+            <li><a href="javascript:void(0)" onclick="navigateTo('about')" class="nav-link">About</a></li>
+            <li><a href="javascript:void(0)" onclick="navigateTo('contact')" class="nav-link">Contact</a></li>
+            <li><a href="javascript:void(0)" onclick="navigateTo('faq')" class="nav-link">FAQ</a></li>
+          </ul>
+          <div class="nav-auth">
+            <button class="btn btn-outline" onclick="navigateTo('login')">Login</button>
+            <button class="btn btn-primary" onclick="navigateTo('signup')">Sign Up</button>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button class="theme-toggle" id="themeToggleStatic" aria-label="Toggle theme" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+          <button class="lang-toggle" id="langToggleStatic" onclick="toggleLanguage()">HI</button>
+          <button class="cart-icon" onclick="navigateTo('cart')"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title"><span class="text-gradient">Handcrafted Clay Diyas</span></h1>
+          <p class="hero-subtitle">Illuminate your space with artisanal traditions, reimagined for modern luxury</p>
+          <div class="hero-cta">
+            <button class="btn btn-primary btn-large" onclick="navigateTo('products')">Explore Collection</button>
+            <button class="btn btn-outline btn-large" onclick="navigateTo('about')">Our Story</button>
+          </div>
+        </div>
+        <div class="hero-background">
+          <div class="floating-diyas">
+            <span class="floating-diya">🪔</span>
+            <span class="floating-diya">🪔</span>
+            <span class="floating-diya">🪔</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Products -->
+      <section class="featured-section">
+        <div class="section-header">
+          <h2 class="section-title">Featured Diyas</h2>
+          <p class="section-subtitle">Curated selections from our master artisans in Bagwali, Panchkula</p>
+        </div>
+        <div class="product-grid" id="featuredProducts">
+          <!-- Product Card 1 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg" alt="Premium Gold Diya" loading="lazy">
+              <span class="product-badge">Best Seller</span>
+              <button class="btn btn-primary btn-sm" onclick="quickView('Premium Gold Diya', '₹1,299', 'https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg')" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);">Quick View</button>
+            </div>
+            <div class="product-info">
+              <h3>Premium Gold Diya</h3>
+              <p class="product-price">₹1,299</p>
+              <div class="product-actions">
+                <button class="btn btn-primary" onclick="addToCart('Premium Gold Diya', '₹1,299')">Add to Cart</button>
+                <button class="btn btn-outline" onclick="buyNow('Premium Gold Diya', '₹1,299')">Buy Now</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product Card 2 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://m.media-amazon.com/images/I/71KqL2rYbXL._SL1500_.jpg" alt="Marble Finish Diya" loading="lazy">
+              <span class="product-badge">New</span>
+              <button class="btn btn-primary btn-sm" onclick="quickView('Marble Finish Diya', '₹899', 'https://m.media-amazon.com/images/I/71KqL2rYbXL._SL1500_.jpg')" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);">Quick View</button>
+            </div>
+            <div class="product-info">
+              <h3>Marble Finish Diya</h3>
+              <p class="product-price">₹899</p>
+              <div class="product-actions">
+                <button class="btn btn-primary" onclick="addToCart('Marble Finish Diya', '₹899')">Add to Cart</button>
+                <button class="btn btn-outline" onclick="buyNow('Marble Finish Diya', '₹899')">Buy Now</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product Card 3 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://m.media-amazon.com/images/I/71bNJ3Pv6nL._SL1500_.jpg" alt="Traditional Brass Diya" loading="lazy">
+              <span class="product-badge">-15%</span>
+              <button class="btn btn-primary btn-sm" onclick="quickView('Traditional Brass Diya', '₹1,599', 'https://m.media-amazon.com/images/I/71bNJ3Pv6nL._SL1500_.jpg')" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);">Quick View</button>
+            </div>
+            <div class="product-info">
+              <h3>Traditional Brass Diya</h3>
+              <p class="product-price">₹1,599</p>
+              <div class="product-actions">
+                <button class="btn btn-primary" onclick="addToCart('Traditional Brass Diya', '₹1,599')">Add to Cart</button>
+                <button class="btn btn-outline" onclick="buyNow('Traditional Brass Diya', '₹1,599')">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories Section -->
+      <section class="categories-section">
+        <div class="section-header">
+          <h2 class="section-title">Shop by Category</h2>
+          <p class="section-subtitle">Discover our diverse collection of handcrafted diyas</p>
+        </div>
+        <div class="categories-grid">
+          <div class="category-card" onclick="navigateTo('products', 'festival')">
+            <div class="category-image">
+              <img src="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg" alt="Festival Collection" loading="lazy">
+            </div>
+            <h3>Festival Collection</h3>
+          </div>
+          <div class="category-card" onclick="navigateTo('products', 'wedding')">
+            <div class="category-image">
+              <img src="https://m.media-amazon.com/images/I/71KqL2rYbXL._SL1500_.jpg" alt="Wedding Special" loading="lazy">
+            </div>
+            <h3>Wedding Special</h3>
+          </div>
+          <div class="category-card" onclick="navigateTo('products', 'decorative')">
+            <div class="category-image">
+              <img src="https://m.media-amazon.com/images/I/71bNJ3Pv6nL._SL1500_.jpg" alt="Decorative Diyas" loading="lazy">
+            </div>
+            <h3>Decorative Diyas</h3>
+          </div>
+          <div class="category-card" onclick="navigateTo('products', 'premium')">
+            <div class="category-image">
+              <img src="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg" alt="Premium Range" loading="lazy">
+            </div>
+            <h3>Premium Range</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Festival Banner -->
+      <div class="festival-banner">
+        <div class="banner-content">
+          <h2>Diwali Special Collection</h2>
+          <p>Get 20% off on all diyas. Use code: DIYA20</p>
+          <div class="banner-cta">
+            <button class="btn btn-primary" onclick="navigateTo('products', 'diwali-special')">Shop Now</button>
+            <button class="btn btn-outline" onclick="applyCoupon('DIYA20')">Apply Coupon</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials">
+        <div class="section-header">
+          <h2 class="section-title">What Our Customers Say</h2>
+          <p class="section-subtitle">Trusted by thousands of happy customers across India</p>
+        </div>
+        <div class="testimonials-slider">
+          <div class="testimonial-card">
+            <p class="testimonial-text">Beautiful craftsmanship! The gold diyas added such elegance to our Diwali puja. Will definitely order more.</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma" class="author-avatar">
+              <div class="author-info">
+                <h4>Priya Sharma</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Delhi</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">The quality is exceptional. Each piece is unique and handcrafted with love. Fast shipping too!</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Mehta" class="author-avatar">
+              <div class="author-info">
+                <h4>Rahul Mehta</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Mumbai</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">Perfect for our wedding decorations. Guests loved the traditional touch. Highly recommended!</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Neha Gupta" class="author-avatar">
+              <div class="author-info">
+                <h4>Neha Gupta</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Jaipur</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="luxury-footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <span class="logo-madhav">MADHAV PRAJAPATI</span>
+              <span class="logo-art">ART</span>
+            </div>
+            <p class="footer-tagline">Handcrafted clay diyas bringing tradition to life, made with love in Bagwali, Panchkula.</p>
+            <div class="footer-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Bagwali, Panchkula, Haryana</span>
+            </div>
+            <div class="social-links">
+              <a href="javascript:void(0)" onclick="socialShare('facebook')" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="javascript:void(0)" onclick="socialShare('instagram')" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="javascript:void(0)" onclick="socialShare('twitter')" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="javascript:void(0)" onclick="socialShare('pinterest')" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="link-group">
+              <h4><i class="fas fa-compass"></i> Explore</h4>
+              <ul>
+                <li><a href="javascript:void(0)" onclick="navigateTo('products')">Products</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('about')">About Us</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('contact')">Contact</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('blog')">Blog</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('gallery')">Gallery</a></li>
+              </ul>
+            </div>
+            <div class="link-group">
+              <h4><i class="fas fa-info-circle"></i> Info</h4>
+              <ul>
+                <li><a href="javascript:void(0)" onclick="navigateTo('shipping')">Shipping Policy</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('returns')">Returns</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('faq')">FAQ</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('privacy')">Privacy Policy</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('terms')">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div class="link-group">
+              <h4><i class="fas fa-hand-holding-heart"></i> Support</h4>
+              <ul>
+                <li><a href="javascript:void(0)" onclick="navigateTo('help')">Help Center</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('track')">Track Order</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('wholesale')">Wholesale</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('custom')">Custom Orders</a></li>
+                <li><a href="javascript:void(0)" onclick="navigateTo('careers')">Careers</a></li>
+              </ul>
+            </div>
+            <div class="link-group">
+              <h4><i class="fas fa-phone-alt"></i> Contact</h4>
+              <ul class="contact-info">
+                <li><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91 98765 43210</a></li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:info@madhavprajapati.art">info@madhavprajapati.art</a></li>
+                <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 7PM</li>
+                <li><i class="fas fa-map-pin"></i> Bagwali, Panchkula</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Madhav Prajapati Art. All rights reserved. Made with <i class="fas fa-heart" style="color: #D4AF37;"></i> in India</p>
+          <div class="payment-icons">
+            <i class="fab fa-cc-visa" title="Visa"></i>
+            <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+            <i class="fab fa-cc-amex" title="American Express"></i>
+            <i class="fab fa-cc-paypal" title="PayPal"></i>
+            <i class="fab fa-google-pay" title="Google Pay"></i>
+            <i class="fab fa-cc-apple-pay" title="Apple Pay"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Virtual Diya -->
+    <div class="virtual-diya" onclick="lightDiya()">
+      <div class="diya-container">
+        <div class="diya-base"></div>
+        <div class="diya-flame" id="diyaFlame"></div>
+      </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script>
+    // Navigation function
+    function navigateTo(page, filter = null) {
+      let message = `Navigating to ${page}`;
+      if (filter) message += ` - Filter: ${filter}`;
+      showToast(message);
+      
+      // Update active nav link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.textContent.toLowerCase().includes(page)) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Cart functions
+    let cartItems = [];
+    let cartCount = 0;
+
+    function addToCart(productName, price) {
+      cartItems.push({ name: productName, price: price });
+      cartCount++;
+      document.getElementById('cartCount').textContent = cartCount;
+      showToast(`${productName} added to cart!`);
+    }
+
+    function buyNow(productName, price) {
+      showToast(`Processing order for ${productName} - ${price}`);
+      // Simulate checkout process
+      setTimeout(() => {
+        showToast(`Order placed successfully! Thank you for shopping with us.`);
+      }, 1500);
+    }
+
+    function quickView(productName, price, imageUrl) {
+      const modal = document.getElementById('quickViewModal');
+      const modalContent = document.getElementById('modalContent');
+      
+      modalContent.innerHTML = `
+        <img src="${imageUrl}" alt="${productName}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+        <h2 style="margin-bottom: 10px;">${productName}</h2>
+        <p style="font-size: 24px; color: #D4AF37; margin-bottom: 15px;">${price}</p>
+        <p style="margin-bottom: 20px; line-height: 1.6;">Handcrafted with love by our master artisans in Bagwali, Panchkula. Each piece is unique and made with premium quality clay.</p>
+        <div style="display: flex; gap: 10px;">
+          <button class="btn btn-primary" style="flex: 1;" onclick="addToCart('${productName}', '${price}'); closeModal();">Add to Cart</button>
+          <button class="btn btn-outline" style="flex: 1;" onclick="buyNow('${productName}', '${price}'); closeModal();">Buy Now</button>
+        </div>
+      `;
+      
+      modal.classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('quickViewModal').classList.remove('show');
+    }
+
+    // Theme toggle
+    function toggleTheme() {
+      const icon = document.querySelector('#themeToggleStatic i');
+      const isDark = document.body.classList.toggle('dark-theme');
+      
+      if (isDark) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        showToast('Dark theme activated');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        showToast('Light theme activated');
+      }
+    }
+
+    // Language toggle
+    let currentLang = 'en';
+    function toggleLanguage() {
+      const btn = document.getElementById('langToggleStatic');
+      if (currentLang === 'en') {
+        btn.textContent = 'EN';
+        currentLang = 'hi';
+        showToast('हिंदी भाषा चयनित');
+      } else {
+        btn.textContent = 'HI';
+        currentLang = 'en';
+        showToast('English language selected');
+      }
+    }
+
+    // Mobile menu toggle
+    document.getElementById('menuToggleStatic').addEventListener('click', function() {
+      const nav = document.getElementById('mainNavStatic');
+      nav.classList.toggle('show');
+      this.querySelector('i').classList.toggle('fa-bars');
+      this.querySelector('i').classList.toggle('fa-times');
+    });
+
+    // Virtual Diya
+    function lightDiya() {
+      const flame = document.getElementById('diyaFlame');
+      flame.style.animation = 'none';
+      flame.offsetHeight; // Trigger reflow
+      flame.style.animation = 'flicker 0.5s infinite alternate';
+      
+      showToast('🪔 You lit a virtual diya! May your home be filled with light and positivity.');
+      
+      // Add burst effect
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          flame.style.transform = `scale(${1 + Math.random() * 0.5})`;
+        }, i * 100);
+      }
+      
+      setTimeout(() => {
+        flame.style.transform = 'scale(1)';
+      }, 600);
+    }
+
+    // Apply coupon
+    function applyCoupon(code) {
+      showToast(`Coupon ${code} applied! You saved 20% on your purchase.`);
+    }
+
+    // Social share
+    function socialShare(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent('Check out Madhav Prajapati Art - Handcrafted Clay Diyas');
+      
+      let shareUrl = '';
+      switch(platform) {
+        case 'facebook':
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+          break;
+        case 'twitter':
+          shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+          break;
+        case 'pinterest':
+          shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${text}`;
+          break;
+        case 'instagram':
+          showToast('Follow us on Instagram @madhavprajapati.art');
+          return;
+      }
+      
+      if (shareUrl) {
+        window.open(shareUrl, '_blank', 'width=600,height=400');
+      }
+    }
+
+    // Toast notification
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('quickViewModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', function() {
+      showToast('Welcome to Madhav Prajapati Art!');
+      
+      // Close mobile menu on window resize
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+          document.getElementById('mainNavStatic').classList.remove('show');
+          document.querySelector('#menuToggleStatic i').classList.remove('fa-times');
+          document.querySelector('#menuToggleStatic i').classList.add('fa-bars');
+        }
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

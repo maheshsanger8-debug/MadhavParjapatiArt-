@@ -1,0 +1,22 @@
+# humans.txt for Madhav Prajapati Art
+
+/* TEAM */
+Developer: Your Name
+Contact: developer@madhav-prajapati-art.web.app
+Twitter: @yourtwitter
+
+/* ARTISANS */
+Master Potter: Madhav Prajapati
+Location: Bagwali, Panchkula, Haryana
+Specialty: Handcrafted Clay Diyas
+
+/* TECHNOLOGY */
+Frontend: HTML5, CSS3, JavaScript
+Backend: Firebase
+Hosting: Firebase Hosting
+Domain: madhav-prajapati-art.web.app
+
+/* SITE */
+Last update: 2024-01-15
+Language: English, Hindi
+Doctype: HTML5

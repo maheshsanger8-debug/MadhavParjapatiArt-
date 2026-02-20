@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Madhav Prajapati Art — Handcrafted Clay Diyas from Bagwali, Panchkula</title>
+  <meta name="description" content="Luxury handcrafted clay diyas by Madhav Prajapati Art. Each piece is artisan-made, premium, and ethically sourced from Bagwali, Panchkula.">
+  <meta name="keywords" content="clay diyas, handcrafted diyas, diwali diyas, wedding diyas, temple diyas, handmade, Bagwali, Panchkula, Haryana">
+  <meta name="author" content="Madhav Prajapati Art">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Madhav Prajapati Art - Handcrafted Clay Diyas">
+  <meta property="og:description" content="Luxury handcrafted clay diyas from Bagwali, Panchkula. Illuminate your space with tradition.">
+  <meta property="og:image" content="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg">
+  <meta property="og:image:width" content="894">
+  <meta property="og:image:height" content="894">
+  <meta property="og:url" content="https://madhavprajapati.art">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_IN">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Madhav Prajapati Art">
+  <meta name="twitter:description" content="Handcrafted clay diyas from Bagwali, Panchkula">
+  <meta name="twitter:image" content="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg">
+  
+  <!-- Fonts - Single instance -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="madhav-logo.svg">
+  <link rel="apple-touch-icon" href="madhav-logo.svg">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#D4AF37">
+  <meta name="msapplication-TileColor" content="#D4AF37">
+  
+  <!-- Styles - Order matters! -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  
+  <!-- Preload Critical Assets -->
+  <link rel="preload" as="image" href="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg">
+  <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" crossorigin>
+  
+  <style>
+    /* ===== EMERGENCY FALLBACK STYLES ===== */
+    /* Only used if main CSS fails to load */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body { 
+      margin: 0; 
+      padding: 0; 
+      font-family: 'Inter', sans-serif;
+      background: #F5E6CA;
+      color: #0F0F0F;
+      line-height: 1.6;
+    }
+    
+    #app { 
+      min-height: 100vh; 
+      display: block;
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    /* Loading Spinner */
+    .loading-spinner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      background: #F5E6CA;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(212,175,55,0.1);
+      border-top-color: #D4AF37;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Fallback Header */
+    .fallback-header {
+      background: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .fallback-header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .fallback-logo {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .fallback-logo .logo-madhav {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #0F0F0F;
+      text-transform: uppercase;
+    }
+    
+    .fallback-logo .logo-art {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #D4AF37;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    
+    .fallback-nav {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .fallback-nav a {
+      color: #0F0F0F;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    
+    .fallback-nav a:hover {
+      color: #D4AF37;
+    }
+    
+    /* Fallback Hero */
+    .fallback-hero {
+      background: linear-gradient(135deg, #0F0F0F, #1A1A1A);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    
+    .fallback-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .fallback-hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    
+    .fallback-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    
+    .fallback-btn-primary {
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
+    
+    .fallback-btn-primary:hover {
+      transform: translateY(-2px);
+    }
+    
+    .fallback-btn-outline {
+      background: transparent;
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    
+    .fallback-btn-outline:hover {
+      background: #D4AF37;
+      color: #0F0F0F;
+    }
+    
+    /* Fallback Footer */
+    .fallback-footer {
+      background: #0F0F0F;
+      color: white;
+      padding: 3rem 2rem 2rem;
+      margin-top: 3rem;
+    }
+    
+    .fallback-footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .fallback-footer-logo {
+      margin-bottom: 1rem;
+    }
+    
+    .fallback-footer-logo .logo-art {
+      color: #D4AF37;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    
+    .fallback-footer p {
+      color: #999;
+      margin-bottom: 1rem;
+    }
+    
+    .fallback-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    
+    .fallback-footer-links a {
+      color: #999;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .fallback-footer-links a:hover {
+      color: #D4AF37;
+    }
+    
+    /* Dark mode support for fallback */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #0F0F0F;
+        color: #FFFFFF;
+      }
+      
+      .loading-spinner {
+        background: #0F0F0F;
+      }
+      
+      .loading-spinner p {
+        color: #FFFFFF !important;
+      }
+      
+      .fallback-header {
+        background: #1A1A1A;
+      }
+      
+      .fallback-logo .logo-madhav {
+        color: #FFFFFF;
+      }
+      
+      .fallback-nav a {
+        color: #FFFFFF;
+      }
+      
+      .fallback-footer {
+        background: #0A0A0A;
+      }
+    }
+    
+    /* Mobile responsive for fallback */
+    @media (max-width: 768px) {
+      .fallback-header-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .fallback-nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .fallback-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .fallback-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .fallback-btn-primary,
+      .fallback-btn-outline {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- ===== PREMIUM LOADING SPINNER WITH BRANDING ===== -->
+    <div class="loading-spinner">
+      <!-- Brand Logo (CSS only) -->
+      <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
+        <span style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 2px; color: #0F0F0F; text-transform: uppercase;">MADHAV PRAJAPATI</span>
+        <span style="font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: 4px; color: #D4AF37; text-transform: uppercase; margin-top: 4px;">ART</span>
+        <span style="font-size: 48px; margin-top: 1rem; color: #D4AF37;">🪔</span>
+      </div>
+      
+      <!-- Animated Spinner -->
+      <div class="spinner"></div>
+      <p style="color: #D4AF37; font-weight: 500; margin-top: 1rem;">Loading Madhav Prajapati Art...</p>
+      <p style="color: #999; font-size: 0.85rem; margin-top: 0.5rem;">Handcrafted in Bagwali, Panchkula</p>
+    </div>
+  </div>
+  
+  <!-- ===== MAIN APP SCRIPT ===== -->
+  <script type="module" src="app.js" defer></script>
+  
+  <!-- ===== COMPREHENSIVE FALLBACK ===== -->
+  <!-- This runs if app.js fails to load -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // Configuration
+      const FALLBACK_TIMEOUT = 3000; // 3 seconds
+      const BRAND_NAME = 'Madhav Prajapati Art';
+      const LOCATION = 'Bagwali, Panchkula, Haryana';
+      
+      // Fallback homepage HTML
+      const fallbackHTML = `
+        <!-- Fallback Header -->
+        <header class="fallback-header">
+          <div class="fallback-header-container">
+            <div class="fallback-logo">
+              <span class="logo-madhav">MADHAV PRAJAPATI</span>
+              <span class="logo-art">ART</span>
+            </div>
+            <nav class="fallback-nav">
+              <a href="#home" onclick="window.location.hash='home'">Home</a>
+              <a href="#products" onclick="window.location.hash='products'">Products</a>
+              <a href="#about" onclick="window.location.hash='about'">About</a>
+              <a href="#contact" onclick="window.location.hash='contact'">Contact</a>
+              <a href="#faq" onclick="window.location.hash='faq'">FAQ</a>
+            </nav>
+          </div>
+        </header>
+
+        <main>
+          <!-- Hero Section -->
+          <section class="fallback-hero">
+            <h1>Handcrafted Clay Diyas</h1>
+            <p>Illuminate your space with artisanal traditions from Bagwali, Panchkula</p>
+            <div class="fallback-buttons">
+              <a href="#products" class="fallback-btn-primary" onclick="window.location.hash='products'">Explore Collection</a>
+              <a href="#about" class="fallback-btn-outline" onclick="window.location.hash='about'">Our Story</a>
+            </div>
+          </section>
+
+          <!-- Featured Products (Static) -->
+          <section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #0F0F0F;">Featured Diyas</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+              <!-- Product 1 -->
+              <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <img src="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg" alt="Premium Gold Diya" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                  <h3 style="margin-bottom: 0.5rem;">Premium Gold Diya</h3>
+                  <p style="color: #D4AF37; font-weight: 700;">₹899</p>
+                  <button onclick="alert('Please enable JavaScript for full functionality')" style="width: 100%; padding: 0.75rem; background: linear-gradient(135deg, #D4AF37, #FF8C42); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Add to Cart</button>
+                </div>
+              </div>
+              <!-- Product 2 -->
+              <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <img src="https://m.media-amazon.com/images/I/71nIRVv8XzL._SL1500_.jpg" alt="Wedding Special Diya" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                  <h3 style="margin-bottom: 0.5rem;">Wedding Special Diya</h3>
+                  <p style="color: #D4AF37; font-weight: 700;">₹1,499</p>
+                  <button onclick="alert('Please enable JavaScript for full functionality')" style="width: 100%; padding: 0.75rem; background: linear-gradient(135deg, #D4AF37, #FF8C42); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Add to Cart</button>
+                </div>
+              </div>
+              <!-- Product 3 -->
+              <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <img src="https://images.pexels.com/photos/5722907/pexels-photo-5722907.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Temple Diya" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                  <h3 style="margin-bottom: 0.5rem;">Temple Diya (Large)</h3>
+                  <p style="color: #D4AF37; font-weight: 700;">₹594 <span style="color: #999; text-decoration: line-through; font-size: 0.9rem;">₹699</span></p>
+                  <button onclick="alert('Please enable JavaScript for full functionality')" style="width: 100%; padding: 0.75rem; background: linear-gradient(135deg, #D4AF37, #FF8C42); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Add to Cart</button>
+                </div>
+              </div>
+              <!-- Product 4 -->
+              <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <img src="https://images.pexels.com/photos/5425041/pexels-photo-5425041.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Decorative Diya" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                  <h3 style="margin-bottom: 0.5rem;">Decorative Peacock Diya</h3>
+                  <p style="color: #D4AF37; font-weight: 700;">₹1,199</p>
+                  <button onclick="alert('Please enable JavaScript for full functionality')" style="width: 100%; padding: 0.75rem; background: linear-gradient(135deg, #D4AF37, #FF8C42); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Festival Banner -->
+          <section style="background: linear-gradient(135deg, #0F0F0F, #1A1A1A); color: white; padding: 3rem 2rem; text-align: center; margin: 2rem 0;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">✨ Diwali Festival Offer ✨</h2>
+            <p style="margin-bottom: 2rem;">Get 20% off on all premium diyas + Free shipping on orders above ₹999</p>
+            <a href="#products?category=diwali" onclick="window.location.hash='products?category=diwali'" class="fallback-btn-primary" style="display: inline-block;">Shop Now</a>
+          </section>
+
+          <!-- Location Badge -->
+          <div style="text-align: center; margin: 2rem;">
+            <span style="background: rgba(212,175,55,0.1); padding: 0.5rem 1.5rem; border-radius: 50px; color: #B8860B; font-weight: 600;">
+              <i class="fas fa-map-marker-alt"></i> Handcrafted in Bagwali, Panchkula, Haryana
+            </span>
+          </div>
+        </main>
+
+        <!-- Fallback Footer -->
+        <footer class="fallback-footer">
+          <div class="fallback-footer-content">
+            <div class="fallback-footer-logo">
+              <span class="logo-art">MADHAV PRAJAPATI ART</span>
+            </div>
+            <p>Handcrafted with love in Bagwali, Panchkula, Haryana 134113</p>
+            <div class="fallback-footer-links">
+              <a href="#about" onclick="window.location.hash='about'">About</a>
+              <a href="#contact" onclick="window.location.hash='contact'">Contact</a>
+              <a href="#privacy" onclick="window.location.hash='privacy'">Privacy</a>
+              <a href="#terms" onclick="window.location.hash='terms'">Terms</a>
+            </div>
+            <p style="font-size: 0.85rem;">&copy; 2026 Madhav Prajapati Art. All rights reserved.</p>
+          </div>
+        </footer>
+      `;
+
+      // Check if app failed to load
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const app = document.getElementById('app');
+          
+          // If still showing loading spinner, app failed
+          if (app && app.children.length === 1 && app.children[0].className === 'loading-spinner') {
+            console.warn('⚠️ App failed to load - showing enhanced fallback homepage');
+            
+            // Replace with fallback content
+            app.innerHTML = fallbackHTML;
+            
+            // Add click handlers for hash links
+            document.querySelectorAll('[onclick*="window.location.hash"]').forEach(el => {
+              const match = el.getAttribute('onclick')?.match(/window\.location\.hash='([^']+)'/);
+              if (match && match[1]) {
+                el.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  window.location.hash = match[1];
+                });
+              }
+            });
+            
+            // Add notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+              position: fixed;
+              bottom: 20px;
+              left: 20px;
+              background: #FFC107;
+              color: #0F0F0F;
+              padding: 12px 24px;
+              border-radius: 50px;
+              font-size: 0.9rem;
+              font-weight: 500;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+              z-index: 9999;
+              animation: slideIn 0.3s ease;
+            `;
+            notification.innerHTML = '<i class="fas fa-info-circle"></i> JavaScript disabled. Showing static version.';
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+              notification.style.animation = 'fadeOut 0.3s ease';
+              setTimeout(() => notification.remove(), 300);
+            }, 5000);
+          }
+        }, FALLBACK_TIMEOUT);
+      });
+
+      // Add animation styles if not present
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes slideIn {
+          from { transform: translateX(-100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeOut {
+          to { opacity: 0; transform: translateX(-100%); }
+        }
+      `;
+      document.head.appendChild(style);
+    })();
+  </script>
+  
+  <!-- ===== NOSCRIPT FALLBACK ===== -->
+  <noscript>
+    <div style="position: fixed; top: 0; left: 0; right: 0; background: #D4AF37; color: #0F0F0F; text-align: center; padding: 1rem; z-index: 10000; font-weight: 600;">
+      ⚡ JavaScript is disabled. Please enable JavaScript for full functionality.
+    </div>
+    <meta http-equiv="refresh" content="0;url=home.html">
+  </noscript>
+</body>
+</html>

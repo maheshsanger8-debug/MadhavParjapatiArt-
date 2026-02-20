@@ -1,0 +1,319 @@
+/* ===== MADHAV PRAJAPATI ART - ANIMATIONS ===== */
+/* Pure CSS Animations - No Image Dependencies! */
+
+/* ---------- FADE ANIMATIONS ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.6s ease forwards; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fadeInUp 0.6s ease forwards; }
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.fade-in-left { animation: fadeInLeft 0.6s ease forwards; }
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.fade-in-right { animation: fadeInRight 0.6s ease forwards; }
+
+/* ---------- SCALE ANIMATIONS ---------- */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+.scale-in { animation: scaleIn 0.5s ease forwards; }
+
+@keyframes scaleOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.9); }
+}
+.scale-out { animation: scaleOut 0.5s ease forwards; }
+
+/* ---------- DIYA FLAME ANIMATION ---------- */
+@keyframes flicker {
+  0% { 
+    transform: scale(1); 
+    opacity: 0.8; 
+    filter: drop-shadow(0 0 5px rgba(212,175,55,0.3));
+  }
+  25% { 
+    transform: scale(1.1); 
+    opacity: 1; 
+    filter: drop-shadow(0 0 15px rgba(212,175,55,0.5));
+  }
+  50% { 
+    transform: scale(0.95); 
+    opacity: 0.9; 
+    filter: drop-shadow(0 0 10px rgba(212,175,55,0.4));
+  }
+  75% { 
+    transform: scale(1.05); 
+    opacity: 1; 
+    filter: drop-shadow(0 0 20px rgba(212,175,55,0.6));
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 0.8; 
+    filter: drop-shadow(0 0 5px rgba(212,175,55,0.3));
+  }
+}
+
+.flame { 
+  animation: flicker 1.5s infinite alternate; 
+}
+
+/* ---------- PURE CSS DIYA ICON (NO IMAGE DEPENDENCY!) ---------- */
+.pure-diya {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+.pure-diya .diya-base {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  width: 30px;
+  height: 12px;
+  background: linear-gradient(135deg, #8B4513, #5D3A1A);
+  border-radius: 0 0 40% 40%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.pure-diya .diya-body {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #D4AF37, #B8860B);
+  border-radius: 50% 50% 40% 40%;
+}
+
+.pure-diya .diya-flame {
+  position: absolute;
+  bottom: 25px;
+  left: 17px;
+  width: 6px;
+  height: 16px;
+  background: linear-gradient(135deg, #FFE55C, #FF8C42);
+  border-radius: 50% 50% 20% 20%;
+  animation: flicker 1.5s infinite alternate;
+  filter: drop-shadow(0 0 10px rgba(255,140,66,0.5));
+}
+
+/* ---------- FLOATING DIYA ANIMATION (PURE CSS, NO SVG!) ---------- */
+@keyframes float {
+  0% { 
+    transform: translateY(100vh) rotate(0deg); 
+    opacity: 0; 
+  }
+  10% { 
+    opacity: 0.15; 
+  }
+  90% { 
+    opacity: 0.15; 
+  }
+  100% { 
+    transform: translateY(-20vh) rotate(360deg); 
+    opacity: 0; 
+  }
+}
+
+.floating-diya {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 0.1;
+  animation: float 20s infinite linear;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Pure CSS Diya for floating animation */
+.floating-diya::before {
+  content: '🪔';
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #D4AF37;
+  text-shadow: 0 0 10px rgba(212,175,55,0.3);
+}
+
+/* Alternative SVG-free diya using emoji (works everywhere!) */
+.diya-emoji {
+  font-size: 40px;
+  color: #D4AF37;
+  display: inline-block;
+  animation: flicker 2s infinite;
+}
+
+/* ---------- HOVER ANIMATIONS ---------- */
+.hover-lift { 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.hover-lift:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 25px rgba(212,175,55,0.2);
+}
+
+.hover-glow { 
+  transition: box-shadow 0.3s ease; 
+}
+.hover-glow:hover { 
+  box-shadow: 0 0 20px rgba(212,175,55,0.3);
+}
+
+.hover-scale { 
+  transition: transform 0.3s ease; 
+}
+.hover-scale:hover { 
+  transform: scale(1.05); 
+}
+
+/* ---------- PAGE TRANSITIONS ---------- */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.page-transition-exit {
+  opacity: 1;
+}
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ---------- TEXT GRADIENT ---------- */
+.text-gradient {
+  background: linear-gradient(135deg, var(--gold, #D4AF37), var(--orange, #FF8C42));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- SPINNER ANIMATION ---------- */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(212,175,55,0.1);
+  border-top-color: var(--gold, #D4AF37);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ---------- SLIDE ANIMATIONS ---------- */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.slide-in { animation: slideIn 0.3s ease forwards; }
+
+@keyframes slideOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+.slide-out { animation: slideOut 0.3s ease forwards; }
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.slide-in-left { animation: slideInLeft 0.3s ease forwards; }
+
+/* ---------- FADE OUT ---------- */
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(100%); }
+}
+.fade-out { animation: fadeOut 0.3s ease forwards; }
+
+/* ---------- PULSE ANIMATION ---------- */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.pulse { animation: pulse 1.5s infinite ease-in-out; }
+
+/* ---------- SHAKE ANIMATION ---------- */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+.shake { animation: shake 0.5s ease-in-out; }
+
+/* ---------- GLOW ANIMATION ---------- */
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(212,175,55,0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(212,175,55,0.6)); }
+}
+.glow { animation: glow 2s infinite; }
+
+/* ---------- BOUNCE ANIMATION ---------- */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.bounce { animation: bounce 1s infinite ease-in-out; }
+
+/* ---------- ROTATE ANIMATION ---------- */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.rotate { animation: rotate 2s linear infinite; }
+
+/* ---------- DARK MODE SUPPORT ---------- */
+@media (prefers-color-scheme: dark) {
+  .spinner {
+    border-color: rgba(212,175,55,0.2);
+    border-top-color: #D4AF37;
+  }
+  
+  .floating-diya::before {
+    color: #D4AF37;
+    opacity: 0.15;
+  }
+  
+  .pure-diya .diya-body {
+    background: linear-gradient(135deg, #D4AF37, #996515);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #FFD700, #FF8C42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* ===== FALLBACK FOR OLD BROWSERS ===== */
+@supports not (background-clip: text) {
+  .text-gradient {
+    color: #D4AF37;
+    background: none;
+    -webkit-text-fill-color: #D4AF37;
+  }
+}

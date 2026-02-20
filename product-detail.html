@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Product Details - Madhav Prajapati Art | Handcrafted Clay Diyas from Bagwali, Panchkula</title>
+  <meta name="description" content="View detailed information about our handcrafted clay diyas. Premium quality, traditional craftsmanship from Bagwali, Panchkula.">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="madhav-logo.svg">
+  <link rel="apple-touch-icon" href="madhav-logo.svg">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Product Details - Madhav Prajapati Art">
+  <meta property="og:description" content="Premium handcrafted clay diyas from Bagwali, Panchkula">
+  <meta property="og:image" content="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg">
+  <meta property="og:image:width" content="894">
+  <meta property="og:image:height" content="894">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madhavprajapati.art/product-detail">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Product Details - Madhav Prajapati Art">
+  <meta name="twitter:description" content="Premium handcrafted clay diyas">
+  <meta name="twitter:image" content="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  
+  <style>
+    /* ===== PRODUCT DETAIL PAGE SPECIFIC STYLES ===== */
+    
+    /* Product Detail Container */
+    .product-detail-page {
+      min-height: 60vh;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .product-detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    /* Gallery Section */
+    .product-gallery {
+      position: relative;
+    }
+    
+    .main-image {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
+      border: 1px solid rgba(212,175,55,0.2);
+      margin-bottom: 1rem;
+      cursor: zoom-in;
+    }
+    
+    .main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .main-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    .image-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    
+    .thumbnail {
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
+      opacity: 0.6;
+    }
+    
+    .thumbnail:hover {
+      opacity: 0.8;
+    }
+    
+    .thumbnail.active {
+      border-color: #D4AF37;
+      opacity: 1;
+    }
+    
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .wishlist-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 48px;
+      height: 48px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #D4AF37;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+    
+    .wishlist-btn:hover {
+      background: #D4AF37;
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .wishlist-btn.active {
+      background: #D4AF37;
+      color: white;
+    }
+    
+    .share-btn {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      width: 48px;
+      height: 48px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #D4AF37;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+    
+    .share-btn:hover {
+      background: #D4AF37;
+      color: white;
+    }
+    
+    /* Product Info Section */
+    .product-info-section {
+      padding: 1rem 0;
+    }
+    
+    .product-category {
+      display: inline-block;
+      background: rgba(212,175,55,0.1);
+      color: #B8860B;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .product-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0F0F0F;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .product-rating-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #D4AF37;
+      font-size: 1.1rem;
+    }
+    
+    .rating-count {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .product-price-container {
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #D4AF37;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .original-price {
+      font-size: 1.2rem;
+      color: #999;
+      text-decoration: line-through;
+      font-weight: 400;
+    }
+    
+    .discount-badge {
+      font-size: 1rem;
+      background: rgba(40,167,69,0.1);
+      color: #28A745;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+    
+    .product-meta {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem 0;
+      border-top: 1px solid #E0E0E0;
+      border-bottom: 1px solid #E0E0E0;
+    }
+    
+    .stock-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+    
+    .stock-status.in-stock {
+      color: #28A745;
+    }
+    
+    .stock-status.out-of-stock {
+      color: #DC3545;
+    }
+    
+    .product-sku {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .product-description {
+      margin-bottom: 2rem;
+    }
+    
+    .product-description h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 1rem;
+    }
+    
+    .product-description p {
+      color: #4A4A4A;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      background: rgba(212,175,55,0.05);
+      border-radius: 12px;
+    }
+    
+    .feature-item i {
+      color: #D4AF37;
+      font-size: 1.1rem;
+    }
+    
+    .feature-item span {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .quantity-label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #666;
+    }
+    
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .quantity-btn {
+      width: 40px;
+      height: 40px;
+      background: #F8F9FA;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .quantity-btn:hover:not(:disabled) {
+      background: #D4AF37;
+      color: white;
+      border-color: #D4AF37;
+    }
+    
+    .quantity-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    
+    .quantity-input {
+      width: 60px;
+      height: 40px;
+      text-align: center;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .product-actions .btn {
+      flex: 1;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    
+    .delivery-info {
+      background: #F8F9FA;
+      padding: 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+    }
+    
+    .delivery-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #E0E0E0;
+    }
+    
+    .delivery-row:last-child {
+      border-bottom: none;
+    }
+    
+    .delivery-row i {
+      color: #D4AF37;
+      width: 24px;
+    }
+    
+    .delivery-row span {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    
+    .delivery-row strong {
+      color: #0F0F0F;
+    }
+    
+    /* Reviews Section */
+    .reviews-section {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    
+    .reviews-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .reviews-header h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0F0F0F;
+    }
+    
+    .reviews-summary {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .average-rating {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #D4AF37;
+    }
+    
+    .rating-stars {
+      color: #D4AF37;
+      font-size: 1.1rem;
+    }
+    
+    .total-reviews {
+      color: #666;
+    }
+    
+    .review-card {
+      padding: 1.5rem;
+      border-bottom: 1px solid #E0E0E0;
+    }
+    
+    .review-card:last-child {
+      border-bottom: none;
+    }
+    
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    
+    .reviewer-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .reviewer-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+    
+    .reviewer-name {
+      font-weight: 600;
+      color: #0F0F0F;
+    }
+    
+    .review-date {
+      font-size: 0.8rem;
+      color: #999;
+      margin-left: 0.5rem;
+    }
+    
+    .review-rating {
+      color: #D4AF37;
+    }
+    
+    .review-text {
+      color: #4A4A4A;
+      line-height: 1.8;
+    }
+    
+    /* Related Products */
+    .related-products {
+      margin-top: 3rem;
+    }
+    
+    .related-products h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 2rem;
+    }
+    
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    
+    /* Loading Spinner */
+    .loading-spinner {
+      text-align: center;
+      padding: 3rem;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(212,175,55,0.1);
+      border-top-color: #D4AF37;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      .product-title {
+        color: #FFFFFF;
+      }
+      
+      .product-description p,
+      .review-text,
+      .feature-item span {
+        color: #CCCCCC;
+      }
+      
+      .delivery-info {
+        background: #2A2A2A;
+      }
+      
+      .delivery-row {
+        border-bottom-color: #404040;
+      }
+      
+      .delivery-row span {
+        color: #CCCCCC;
+      }
+      
+      .delivery-row strong {
+        color: #FFFFFF;
+      }
+      
+      .quantity-btn {
+        background: #2A2A2A;
+        border-color: #404040;
+        color: #FFFFFF;
+      }
+      
+      .quantity-input {
+        background: #2A2A2A;
+        border-color: #404040;
+        color: #FFFFFF;
+      }
+      
+      .reviews-section {
+        background: #1A1A1A;
+      }
+      
+      .reviews-header h2,
+      .reviewer-name {
+        color: #FFFFFF;
+      }
+      
+      .review-card {
+        border-bottom-color: #2D2D2D;
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .product-detail-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .product-detail-page {
+        padding: 1rem;
+      }
+      
+      .product-title {
+        font-size: 2rem;
+      }
+      
+      .product-actions {
+        flex-direction: column;
+      }
+      
+      .product-features {
+        grid-template-columns: 1fr;
+      }
+      
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .reviews-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .reviews-summary {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- ===== STATIC FALLBACK PRODUCT DETAIL ===== -->
+    <div class="product-detail-page">
+      <div class="product-detail-container">
+        <!-- Gallery Section -->
+        <div class="product-gallery">
+          <div class="main-image">
+            <img src="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg" alt="Premium Handcrafted Clay Diya">
+            <button class="wishlist-btn" onclick="alert('Please enable JavaScript to add to wishlist')">
+              <i class="far fa-heart"></i>
+            </button>
+            <button class="share-btn" onclick="shareProduct()">
+              <i class="fas fa-share-alt"></i>
+            </button>
+          </div>
+          
+          <div class="image-thumbnails">
+            <div class="thumbnail active">
+              <img src="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg" alt="Thumbnail 1">
+            </div>
+            <div class="thumbnail">
+              <img src="https://m.media-amazon.com/images/I/71nIRVv8XzL._SL1500_.jpg" alt="Thumbnail 2">
+            </div>
+            <div class="thumbnail">
+              <img src="https://images.pexels.com/photos/5722907/pexels-photo-5722907.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Thumbnail 3">
+            </div>
+            <div class="thumbnail">
+              <img src="https://images.pexels.com/photos/5425041/pexels-photo-5425041.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Thumbnail 4">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product Info Section -->
+        <div class="product-info-section">
+          <span class="product-category">Diwali Collection</span>
+          
+          <h1 class="product-title">Premium Handcrafted Gold Diya</h1>
+          
+          <div class="product-rating-container">
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="rating-count">(24 reviews)</span>
+          </div>
+          
+          <div class="product-price-container">
+            <div class="product-price">
+              ₹899
+              <span class="original-price">₹1,299</span>
+              <span class="discount-badge">-30%</span>
+            </div>
+          </div>
+          
+          <div class="product-meta">
+            <div class="stock-status in-stock">
+              <i class="fas fa-check-circle"></i> In Stock
+            </div>
+            <div class="product-sku">SKU: MP-DIW-001</div>
+          </div>
+          
+          <div class="product-description">
+            <h3>Product Description</h3>
+            <p>Handcrafted by skilled artisans in Bagwali, Panchkula, this premium gold diya features intricate traditional patterns with a modern luxury finish. Each piece is meticulously shaped, sun-dried for 48 hours, and finished with natural dyes and 24K gold leaf accents.</p>
+          </div>
+          
+          <div class="product-features">
+            <div class="feature-item">
+              <i class="fas fa-leaf"></i>
+              <span>100% Natural Clay</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-paint-brush"></i>
+              <span>Hand-painted</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-fire"></i>
+              <span>Heat-resistant</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-gem"></i>
+              <span>24K Gold Accents</span>
+            </div>
+          </div>
+          
+          <div class="quantity-selector">
+            <span class="quantity-label">Quantity:</span>
+            <div class="quantity-controls">
+              <button class="quantity-btn" onclick="adjustQuantity(-1)">-</button>
+              <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10" readonly>
+              <button class="quantity-btn" onclick="adjustQuantity(1)">+</button>
+            </div>
+          </div>
+          
+          <div class="product-actions">
+            <button class="btn btn-outline" onclick="alert('Please enable JavaScript to add to cart')">
+              <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+            <button class="btn btn-primary" onclick="alert('Please enable JavaScript to buy now')">
+              <i class="fas fa-bolt"></i> Buy Now
+            </button>
+          </div>
+          
+          <div class="delivery-info">
+            <div class="delivery-row">
+              <i class="fas fa-truck"></i>
+              <span><strong>Free Shipping</strong> on orders above ₹999</span>
+            </div>
+            <div class="delivery-row">
+              <i class="fas fa-clock"></i>
+              <span>Estimated delivery: <strong>5-7 business days</strong></span>
+            </div>
+            <div class="delivery-row">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Handcrafted in <strong>Bagwali, Panchkula</strong></span>
+            </div>
+            <div class="delivery-row">
+              <i class="fas fa-undo-alt"></i>
+              <span><strong>7-day easy returns</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Reviews Section -->
+      <div class="reviews-section">
+        <div class="reviews-header">
+          <h2>Customer Reviews</h2>
+          <div class="reviews-summary">
+            <span class="average-rating">4.5</span>
+            <div class="rating-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="total-reviews">(24 reviews)</span>
+          </div>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">P</div>
+              <div>
+                <span class="reviewer-name">Priya Sharma</span>
+                <span class="review-date">2 weeks ago</span>
+              </div>
+            </div>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="review-text">Absolutely stunning craftsmanship! The gold accents are beautiful and the quality is exceptional. Made our Diwali celebration truly special.</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">R</div>
+              <div>
+                <span class="reviewer-name">Rahul Mehta</span>
+                <span class="review-date">1 month ago</span>
+              </div>
+            </div>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="review-text">Ordered for my wedding. They exceeded all expectations! Each piece is unique and beautifully handcrafted. Highly recommend!</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">A</div>
+              <div>
+                <span class="reviewer-name">Anjali Desai</span>
+                <span class="review-date">2 months ago</span>
+              </div>
+            </div>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <p class="review-text">Beautiful diyas, fast shipping from Bagwali. Will definitely order again!</p>
+        </div>
+      </div>
+      
+      <!-- Related Products -->
+      <div class="related-products">
+        <h2>You May Also Like</h2>
+        <div class="related-grid">
+          <!-- Product 1 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://m.media-amazon.com/images/I/71nIRVv8XzL._SL1500_.jpg" alt="Wedding Special Diya">
+              <span class="product-badge new">New</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Wedding Special Diya</h3>
+              <div class="product-price">₹1,499</div>
+              <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (8)</div>
+              <div class="product-actions">
+                <button class="btn btn-outline" onclick="alert('Please enable JavaScript')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 2 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.pexels.com/photos/5722907/pexels-photo-5722907.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Temple Diya">
+              <span class="product-badge">-15%</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Temple Diya (Large)</h3>
+              <div class="product-price">₹594 <span class="original-price">₹699</span></div>
+              <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (12)</div>
+              <div class="product-actions">
+                <button class="btn btn-outline" onclick="alert('Please enable JavaScript')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 3 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.pexels.com/photos/5425041/pexels-photo-5425041.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Decorative Diya">
+              <span class="product-badge">Limited</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Decorative Peacock Diya</h3>
+              <div class="product-price">₹1,199</div>
+              <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (32)</div>
+              <div class="product-actions">
+                <button class="btn btn-outline" onclick="alert('Please enable JavaScript')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 4 -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.pexels.com/photos/461937/pexels-photo-461937.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Traditional Diya">
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Traditional Clay Diya</h3>
+              <div class="product-price">₹399</div>
+              <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (45)</div>
+              <div class="product-actions">
+                <button class="btn btn-outline" onclick="alert('Please enable JavaScript')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Script -->
+  <script type="module" src="app.js"></script>
+  
+  <!-- Fallback JavaScript -->
+  <script>
+    let quantity = 1;
+    
+    function adjustQuantity(change) {
+      quantity = Math.max(1, Math.min(10, quantity + change));
+      document.getElementById('quantity').value = quantity;
+    }
+    
+    function shareProduct() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Premium Handcrafted Gold Diya',
+          text: 'Check out this beautiful handcrafted diya from Madhav Prajapati Art',
+          url: window.location.href
+        }).catch(() => {
+          alert('Share cancelled');
+        });
+      } else {
+        alert('Share this product: ' + window.location.href);
+      }
+    }
+  </script>
+</body>
+</html>

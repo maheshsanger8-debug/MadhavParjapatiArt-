@@ -1,0 +1,143 @@
+{
+  "name": "Madhav Prajapati Art",
+  "short_name": "MP Art",
+  "description": "Luxury handcrafted clay diyas from Bagwali, Panchkula - Illuminate your space with artisanal traditions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5E6CA",
+  "theme_color": "#D4AF37",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": ["shopping", "handicraft", "home", "decor", "gifts"],
+  "icons": [
+    {
+      "src": "https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://m.media-amazon.com/images/I/71nIRVv8XzL._SL1500_.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://images.pexels.com/photos/5722907/pexels-photo-5722907.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://images.pexels.com/photos/5425041/pexels-photo-5425041.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    }
+  ],
+  "splash_pages": null,
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Shop Diwali Collection",
+      "short_name": "Diwali",
+      "description": "Browse our exclusive Diwali collection",
+      "url": "/#products?category=diwali",
+      "icons": [
+        {
+          "src": "https://images.pexels.com/photos/5722907/pexels-photo-5722907.jpeg?auto=compress&cs=tinysrgb&w=96",
+          "sizes": "96x96",
+          "type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Wedding Diyas",
+      "short_name": "Wedding",
+      "description": "Explore wedding special diyas",
+      "url": "/#products?category=wedding",
+      "icons": [
+        {
+          "src": "https://images.pexels.com/photos/5425041/pexels-photo-5425041.jpeg?auto=compress&cs=tinysrgb&w=96",
+          "sizes": "96x96",
+          "type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "name": "View Cart",
+      "short_name": "Cart",
+      "description": "Check your shopping cart",
+      "url": "/#cart",
+      "icons": [
+        {
+          "src": "https://cdn-icons-png.flaticon.com/512/126/126083.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "My Account",
+      "short_name": "Account",
+      "description": "Manage your account",
+      "url": "/#login",
+      "icons": [
+        {
+          "src": "https://cdn-icons-png.flaticon.com/512/1077/1077114.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "display_override": [
+    "standalone",
+    "window-controls-overlay"
+  ],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": ["focus-existing", "auto"]
+  },
+  "screenshots": [
+    {
+      "src": "https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg",
+      "sizes": "894x894",
+      "type": "image/jpg",
+      "form_factor": "wide",
+      "label": "Premium Gold Diya featured product"
+    },
+    {
+      "src": "https://images.pexels.com/photos/5722907/pexels-photo-5722907.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "sizes": "1200x800",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Handcrafted clay diyas collection"
+    },
+    {
+      "src": "https://images.pexels.com/photos/5425041/pexels-photo-5425041.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "sizes": "600x400",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Mobile view of diya collection"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+madhavart",
+      "url": "/product?name=%s"
+    }
+  ],
+  "share_target": {
+    "action": "/share-target",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

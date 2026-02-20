@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Login / Sign Up - Madhav Prajapati Art | Handcrafted Clay Diyas from Bagwali, Panchkula</title>
+  <meta name="description" content="Login or create an account at Madhav Prajapati Art to manage your orders, wishlist, and more. Handcrafted clay diyas from Bagwali, Panchkula.">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="madhav-logo.svg">
+  <link rel="apple-touch-icon" href="madhav-logo.svg">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Login - Madhav Prajapati Art">
+  <meta property="og:description" content="Login to your account at Madhav Prajapati Art">
+  <meta property="og:image" content="madhav-logo.svg">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="120">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madhavprajapati.art/login">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Login - Madhav Prajapati Art">
+  <meta name="twitter:description" content="Login to your account">
+  <meta name="twitter:image" content="madhav-logo.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  
+  <style>
+    /* ===== EMERGENCY FALLBACK STYLES ===== */
+    /* Only used if main CSS fails */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #F5E6CA, #FFFFFF);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    
+    .loading-spinner {
+      text-align: center;
+      padding: 3rem;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(212,175,55,0.1);
+      border-top-color: #D4AF37;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Fallback Auth Container */
+    .fallback-auth {
+      max-width: 450px;
+      width: 100%;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    
+    .fallback-logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .fallback-logo .madhav {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #0F0F0F;
+      text-transform: uppercase;
+      display: block;
+    }
+    
+    .fallback-logo .art {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 4px;
+      color: #D4AF37;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 4px;
+    }
+    
+    .fallback-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #E0E0E0;
+      padding-bottom: 0.5rem;
+    }
+    
+    .fallback-tab {
+      flex: 1;
+      padding: 0.75rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .fallback-tab.active {
+      color: #D4AF37;
+      border-bottom: 2px solid #D4AF37;
+    }
+    
+    .fallback-form {
+      display: block;
+    }
+    
+    .fallback-form.hidden {
+      display: none;
+    }
+    
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #666;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 2px solid #E0E0E0;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    
+    .form-group input:focus {
+      outline: none;
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.1);
+    }
+    
+    .password-wrapper {
+      position: relative;
+    }
+    
+    .password-toggle {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+    }
+    
+    .forgot-link {
+      text-align: right;
+      margin-top: 0.5rem;
+    }
+    
+    .forgot-link a {
+      color: #D4AF37;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #666;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    
+    .checkbox-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #D4AF37;
+    }
+    
+    .btn-primary {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 1.5rem 0 1rem;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+    }
+    
+    .divider {
+      position: relative;
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    
+    .divider::before,
+    .divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: calc(50% - 70px);
+      height: 1px;
+      background: #E0E0E0;
+    }
+    
+    .divider::before { left: 0; }
+    .divider::after { right: 0; }
+    
+    .divider span {
+      background: white;
+      padding: 0 1rem;
+      color: #666;
+      font-size: 0.85rem;
+    }
+    
+    .social-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .social-btn {
+      padding: 0.875rem;
+      background: white;
+      border: 2px solid #E0E0E0;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #0F0F0F;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .social-btn:hover {
+      border-color: #D4AF37;
+      background: rgba(212,175,55,0.05);
+    }
+    
+    .social-btn i {
+      color: #D4AF37;
+    }
+    
+    .auth-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #666;
+      font-size: 0.85rem;
+    }
+    
+    .auth-footer a {
+      color: #D4AF37;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .error-message {
+      background: #ffebee;
+      color: #DC3545;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+    
+    .error-message.show {
+      display: block;
+    }
+    
+    .success-message {
+      background: #e8f5e9;
+      color: #28A745;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+    
+    .success-message.show {
+      display: block;
+    }
+    
+    /* Dark Mode for fallback */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(135deg, #0F0F0F, #1A1A1A);
+      }
+      
+      .fallback-auth {
+        background: #1A1A1A;
+        border-color: rgba(212,175,55,0.1);
+      }
+      
+      .fallback-logo .madhav {
+        color: #FFFFFF;
+      }
+      
+      .form-group label {
+        color: #CCCCCC;
+      }
+      
+      .form-group input {
+        background: #2A2A2A;
+        border-color: #404040;
+        color: #FFFFFF;
+      }
+      
+      .divider span {
+        background: #1A1A1A;
+        color: #CCCCCC;
+      }
+      
+      .social-btn {
+        background: #2A2A2A;
+        border-color: #404040;
+        color: #FFFFFF;
+      }
+      
+      .checkbox-label {
+        color: #CCCCCC;
+      }
+      
+      .auth-footer {
+        color: #999;
+      }
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 480px) {
+      .fallback-auth {
+        padding: 1.5rem;
+      }
+      
+      .social-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- ===== LOADING SPINNER ===== -->
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p style="color: #D4AF37; font-weight: 500;">Loading secure login...</p>
+    </div>
+  </div>
+  
+  <!-- ===== MAIN APP SCRIPT ===== -->
+  <script type="module" src="app.js" defer></script>
+  
+  <!-- ===== FALLBACK STATIC LOGIN PAGE ===== -->
+  <script>
+    (function() {
+      'use strict';
+      
+      const FALLBACK_TIMEOUT = 3000; // 3 seconds
+      const REDIRECT_PARAM = new URLSearchParams(window.location.search).get('redirect') || 'home';
+      
+      // Fallback login/signup HTML
+      const fallbackHTML = `
+        <div class="fallback-auth">
+          <div class="fallback-logo">
+            <span class="madhav">MADHAV PRAJAPATI</span>
+            <span class="art">ART</span>
+            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Bagwali, Panchkula</p>
+          </div>
+          
+          <!-- Error/Success Messages -->
+          <div id="errorMessage" class="error-message"></div>
+          <div id="successMessage" class="success-message"></div>
+          
+          <!-- Tabs -->
+          <div class="fallback-tabs">
+            <button class="fallback-tab active" data-tab="login">Login</button>
+            <button class="fallback-tab" data-tab="signup">Sign Up</button>
+          </div>
+          
+          <!-- Login Form -->
+          <form id="loginForm" class="fallback-form">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="loginEmail" placeholder="your@email.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="loginPassword" placeholder="••••••••" required>
+                <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+              <label class="checkbox-label">
+                <input type="checkbox" id="rememberMe"> Remember me
+              </label>
+              <div class="forgot-link">
+                <a href="#" id="forgotPassword">Forgot Password?</a>
+              </div>
+            </div>
+            
+            <button type="submit" class="btn-primary">Login</button>
+            
+            <div class="divider">
+              <span>OR</span>
+            </div>
+            
+            <div class="social-buttons">
+              <button type="button" class="social-btn" onclick="alert('Google login would open here')">
+                <i class="fab fa-google"></i> Google
+              </button>
+              <button type="button" class="social-btn" onclick="alert('Facebook login would open here')">
+                <i class="fab fa-facebook-f"></i> Facebook
+              </button>
+            </div>
+          </form>
+          
+          <!-- Signup Form -->
+          <form id="signupForm" class="fallback-form hidden">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="signupName" placeholder="Madhav Prajapati" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="signupEmail" placeholder="your@email.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="signupPassword" placeholder="••••••••" required>
+                <button type="button" class="password-toggle" onclick="togglePassword('signupPassword')">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <small style="color: #999; font-size: 0.75rem; margin-top: 0.25rem; display: block;">At least 6 characters</small>
+            </div>
+            
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="signupConfirmPassword" placeholder="••••••••" required>
+                <button type="button" class="password-toggle" onclick="togglePassword('signupConfirmPassword')">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="termsAgree" required>
+                I agree to the <a href="#terms" style="color: #D4AF37;">Terms</a> and <a href="#privacy" style="color: #D4AF37;">Privacy Policy</a>
+              </label>
+            </div>
+            
+            <button type="submit" class="btn-primary">Create Account</button>
+            
+            <div class="divider">
+              <span>OR</span>
+            </div>
+            
+            <div class="social-buttons">
+              <button type="button" class="social-btn" onclick="alert('Google signup would open here')">
+                <i class="fab fa-google"></i> Google
+              </button>
+              <button type="button" class="social-btn" onclick="alert('Facebook signup would open here')">
+                <i class="fab fa-facebook-f"></i> Facebook
+              </button>
+            </div>
+          </form>
+          
+          <!-- Footer -->
+          <div class="auth-footer">
+            <p id="authFooterText">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+          </div>
+        </div>
+      `;
+      
+      // Check if app failed to load
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const app = document.getElementById('app');
+          
+          if (app && app.children.length === 1 && app.children[0].className === 'loading-spinner') {
+            console.warn('⚠️ App failed to load - showing static login page');
+            
+            app.innerHTML = fallbackHTML;
+            
+            // Tab switching
+            const tabs = document.querySelectorAll('.fallback-tab');
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const footerText = document.getElementById('authFooterText');
+            
+            tabs.forEach(tab => {
+              tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                if (this.dataset.tab === 'login') {
+                  loginForm.classList.remove('hidden');
+                  signupForm.classList.add('hidden');
+                  footerText.innerHTML = `Don't have an account? <a href="#" id="switchToSignup">Sign up</a>`;
+                } else {
+                  loginForm.classList.add('hidden');
+                  signupForm.classList.remove('hidden');
+                  footerText.innerHTML = `Already have an account? <a href="#" id="switchToLogin">Login</a>`;
+                }
+                
+                // Re-attach switch listeners
+                attachSwitchListeners();
+              });
+            });
+            
+            // Switch links
+            function attachSwitchListeners() {
+              const switchToSignup = document.getElementById('switchToSignup');
+              const switchToLogin = document.getElementById('switchToLogin');
+              
+              if (switchToSignup) {
+                switchToSignup.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  document.querySelector('[data-tab="signup"]').click();
+                });
+              }
+              
+              if (switchToLogin) {
+                switchToLogin.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  document.querySelector('[data-tab="login"]').click();
+                });
+              }
+            }
+            
+            attachSwitchListeners();
+            
+            // Forgot password
+            document.getElementById('forgotPassword')?.addEventListener('click', function(e) {
+              e.preventDefault();
+              const email = prompt('Enter your email to reset password:');
+              if (email) {
+                showMessage('success', 'Password reset email sent! Check your inbox.');
+              }
+            });
+            
+            // Login form submit
+            document.getElementById('loginForm')?.addEventListener('submit', function(e) {
+              e.preventDefault();
+              const email = document.getElementById('loginEmail').value;
+              const password = document.getElementById('loginPassword').value;
+              
+              if (!email || !password) {
+                showMessage('error', 'Please enter both email and password');
+                return;
+              }
+              
+              // Simulate login
+              showMessage('success', 'Login successful! Redirecting...');
+              setTimeout(() => {
+                window.location.hash = REDIRECT_PARAM;
+              }, 1500);
+            });
+            
+            // Signup form submit
+            document.getElementById('signupForm')?.addEventListener('submit', function(e) {
+              e.preventDefault();
+              const name = document.getElementById('signupName').value;
+              const email = document.getElementById('signupEmail').value;
+              const password = document.getElementById('signupPassword').value;
+              const confirm = document.getElementById('signupConfirmPassword').value;
+              const terms = document.getElementById('termsAgree').checked;
+              
+              if (!name || !email || !password || !confirm) {
+                showMessage('error', 'Please fill in all fields');
+                return;
+              }
+              
+              if (password.length < 6) {
+                showMessage('error', 'Password must be at least 6 characters');
+                return;
+              }
+              
+              if (password !== confirm) {
+                showMessage('error', 'Passwords do not match');
+                return;
+              }
+              
+              if (!terms) {
+                showMessage('error', 'Please agree to the Terms and Privacy Policy');
+                return;
+              }
+              
+              // Simulate signup
+              showMessage('success', 'Account created! Logging you in...');
+              setTimeout(() => {
+                window.location.hash = REDIRECT_PARAM;
+              }, 1500);
+            });
+            
+            // Show message function
+            function showMessage(type, text) {
+              const errorDiv = document.getElementById('errorMessage');
+              const successDiv = document.getElementById('successMessage');
+              
+              errorDiv.classList.remove('show');
+              successDiv.classList.remove('show');
+              
+              if (type === 'error') {
+                errorDiv.textContent = text;
+                errorDiv.classList.add('show');
+              } else {
+                successDiv.textContent = text;
+                successDiv.classList.add('show');
+              }
+            }
+          }
+        }, FALLBACK_TIMEOUT);
+      });
+    })();
+  </script>
+  
+  <!-- Password toggle function -->
+  <script>
+    function togglePassword(inputId) {
+      const input = document.getElementById(inputId);
+      const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+      input.setAttribute('type', type);
+      
+      // Toggle icon
+      const btn = event.currentTarget;
+      const icon = btn.querySelector('i');
+      icon.className = type === 'password' ? 'far fa-eye' : 'far fa-eye-slash';
+    }
+  </script>
+  
+  <!-- NoScript fallback -->
+  <noscript>
+    <div style="position: fixed; top: 0; left: 0; right: 0; background: #D4AF37; color: #0F0F0F; text-align: center; padding: 1rem; z-index: 10000;">
+      ⚡ JavaScript is disabled. Please enable JavaScript for authentication.
+    </div>
+    <meta http-equiv="refresh" content="0;url=home.html">
+  </noscript>
+</body>
+</html>

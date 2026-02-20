@@ -1,0 +1,326 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ============================================
+    // HELPER FUNCTIONS
+    // ============================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isAdminOrOwner(userId) {
+      return isAdmin() || isOwner(userId);
+    }
+    
+    function userHasRole(role) {
+      return isAuthenticated() && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == role;
+    }
+    
+    function isValidEmail(email) {
+      return email.matches('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
+    }
+    
+    function isValidPhone(phone) {
+      return phone.matches('^[0-9]{10}$');
+    }
+    
+    function isValidPincode(pincode) {
+      return pincode.matches('^[0-9]{6}$');
+    }
+    
+    function isValidPrice(price) {
+      return price >= 0 && price < 1000000;
+    }
+    
+    function isValidStock(stock) {
+      return stock >= 0 && stock < 10000;
+    }
+    
+    function isWithinLimits(data, maxSize) {
+      return data.size() <= maxSize;
+    }
+    
+    function hasRequiredFields(data, required) {
+      return required.all(field => field in data && data[field] != null);
+    }
+    
+    function hasValidProductData(data) {
+      let isValid = true;
+      isValid = isValid && 'name' in data && data.name is string && data.name.size() > 0 && data.name.size() < 100;
+      isValid = isValid && 'price' in data && data.price is number && isValidPrice(data.price);
+      isValid = isValid && 'category' in data && data.category in ['diwali', 'wedding', 'temple', 'decorative', 'custom', 'uncategorized'];
+      isValid = isValid && (!('stock' in data) || (data.stock is number && isValidStock(data.stock)));
+      isValid = isValid && (!('images' in data) || (data.images is list && data.images.size() <= 10));
+      isValid = isValid && (!('description' in data) || (data.description is string && data.description.size() < 2000));
+      return isValid;
+    }
+    
+    function hasValidOrderData(data) {
+      let isValid = true;
+      isValid = isValid && 'userId' in data && data.userId is string;
+      isValid = isValid && 'items' in data && data.items is list && data.items.size() > 0;
+      isValid = isValid && 'shippingAddress' in data && data.shippingAddress is map;
+      isValid = isValid && 'total' in data && data.total is number && data.total >= 0;
+      isValid = isValid && (!('paymentMethod' in data) || data.paymentMethod in ['cod', 'card', 'upi', 'netbanking']);
+      return isValid;
+    }
+    
+    function hasValidReviewData(data) {
+      let isValid = true;
+      isValid = isValid && 'rating' in data && data.rating is number && data.rating >= 1 && data.rating <= 5;
+      isValid = isValid && 'comment' in data && data.comment is string && data.comment.size() > 0 && data.comment.size() < 1000;
+      isValid = isValid && (!('images' in data) || (data.images is list && data.images.size() <= 5));
+      return isValid;
+    }
+    
+    function hasValidAddressData(data) {
+      let isValid = true;
+      isValid = isValid && 'fullName' in data && data.fullName is string && data.fullName.size() > 0;
+      isValid = isValid && 'phone' in data && data.phone is string && isValidPhone(data.phone);
+      isValid = isValid && 'addressLine1' in data && data.addressLine1 is string && data.addressLine1.size() > 0;
+      isValid = isValid && 'city' in data && data.city is string && data.city.size() > 0;
+      isValid = isValid && 'state' in data && data.state is string && data.state.size() > 0;
+      isValid = isValid && 'pincode' in data && data.pincode is string && isValidPincode(data.pincode);
+      isValid = isValid && 'country' in data && data.country in ['India'];
+      return isValid;
+    }
+    
+    function hasValidCouponData(data) {
+      let isValid = true;
+      isValid = isValid && 'code' in data && data.code is string && data.code.size() >= 3 && data.code.size() <= 20;
+      isValid = isValid && 'discount' in data && data.discount is number && data.discount >= 0 && data.discount <= 100;
+      isValid = isValid && 'validUntil' in data && data.validUntil is timestamp;
+      isValid = isValid && (!('maxUses' in data) || (data.maxUses is number && data.maxUses > 0));
+      return isValid;
+    }
+    
+    // ============================================
+    // USERS COLLECTION
+    // ============================================
+    
+    match /users/{userId} {
+      // Read: Users can read their own data, admins can read all
+      allow read: if isAuthenticated() && (userId == request.auth.uid || isAdmin());
+      
+      // Create: Only during signup (handled by auth trigger)
+      allow create: if isAuthenticated() && userId == request.auth.uid;
+      
+      // Update: Users can update their own non-sensitive data, admins can update all
+      allow update: if isAuthenticated() && (
+        (userId == request.auth.uid && 
+         request.resource.data.diff(resource.data).affectedKeys()
+           .hasOnly(['name', 'phone', 'avatar', 'addresses', 'preferences'])) ||
+        isAdmin()
+      );
+      
+      // Delete: Only admins
+      allow delete: if isAdmin();
+      
+      // Validate user data
+      allow write: if request.resource.data.size() <= 20 &&
+                     (!('email' in request.resource.data) || 
+                      (request.resource.data.email is string && 
+                       isValidEmail(request.resource.data.email))) &&
+                     (!('phone' in request.resource.data) || 
+                      (request.resource.data.phone is string && 
+                       isValidPhone(request.resource.data.phone))) &&
+                     (!('role' in request.resource.data) || isAdmin());
+    }
+    
+    // ============================================
+    // PRODUCTS COLLECTION
+    // ============================================
+    
+    match /products/{productId} {
+      // Read: Public access
+      allow read: if true;
+      
+      // Create: Only admins
+      allow create: if isAdmin() && hasValidProductData(request.resource.data);
+      
+      // Update: Only admins
+      allow update: if isAdmin() && 
+                     (!('stock' in request.resource.data) || 
+                      (request.resource.data.stock is number && 
+                       isValidStock(request.resource.data.stock))) &&
+                     (!('price' in request.resource.data) || 
+                      (request.resource.data.price is number && 
+                       isValidPrice(request.resource.data.price)));
+      
+      // Delete: Only admins
+      allow delete: if isAdmin();
+    }
+    
+    // ============================================
+    // ORDERS COLLECTION
+    // ============================================
+    
+    match /orders/{orderId} {
+      // Read: Users can read their own orders, admins can read all
+      allow read: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || isAdmin()
+      );
+      
+      // Create: Authenticated users can create orders
+      allow create: if isAuthenticated() && 
+                     request.resource.data.userId == request.auth.uid &&
+                     hasValidOrderData(request.resource.data);
+      
+      // Update: Only status updates allowed
+      allow update: if isAuthenticated() && (
+        (resource.data.userId == request.auth.uid && 
+         request.resource.data.diff(resource.data).affectedKeys()
+           .hasOnly(['status', 'paymentStatus', 'updatedAt'])) ||
+        isAdmin()
+      );
+      
+      // Delete: Only admins (rarely needed)
+      allow delete: if isAdmin();
+    }
+    
+    // ============================================
+    // REVIEWS COLLECTION
+    // ============================================
+    
+    match /reviews/{reviewId} {
+      // Read: Public access
+      allow read: if true;
+      
+      // Create: Authenticated users can create reviews
+      allow create: if isAuthenticated() && 
+                     request.resource.data.userId == request.auth.uid &&
+                     hasValidReviewData(request.resource.data);
+      
+      // Update: Users can update their own reviews, admins can moderate
+      allow update: if isAuthenticated() && (
+        (resource.data.userId == request.auth.uid && 
+         request.resource.data.diff(resource.data).affectedKeys()
+           .hasOnly(['comment', 'rating', 'images', 'updatedAt'])) ||
+        isAdmin()
+      );
+      
+      // Delete: Users can delete own reviews, admins can delete any
+      allow delete: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || isAdmin()
+      );
+    }
+    
+    // ============================================
+    // COUPONS COLLECTION
+    // ============================================
+    
+    match /coupons/{couponId} {
+      // Read: Authenticated users can read, admins can read all
+      allow read: if isAuthenticated();
+      
+      // Create: Only admins
+      allow create: if isAdmin() && hasValidCouponData(request.resource.data);
+      
+      // Update: Only admins
+      allow update: if isAdmin() && 
+                     request.resource.data.diff(resource.data).affectedKeys()
+                       .hasAny(['usedCount', 'isActive', 'updatedAt']);
+      
+      // Delete: Only admins
+      allow delete: if isAdmin();
+    }
+    
+    // ============================================
+    // SETTINGS COLLECTION
+    // ============================================
+    
+    match /settings/{settingId} {
+      // Read: Public access (site settings are public)
+      allow read: if true;
+      
+      // Write: Only admins
+      allow write: if isAdmin();
+    }
+    
+    // ============================================
+    // NOTIFICATIONS COLLECTION
+    // ============================================
+    
+    match /notifications/{notificationId} {
+      // Read: Users can read their own notifications
+      allow read: if isAuthenticated() && 
+                   resource.data.userId == request.auth.uid;
+      
+      // Create: System can create (through cloud functions)
+      allow create: if isAuthenticated() && 
+                     request.resource.data.userId == request.auth.uid;
+      
+      // Update: Users can mark as read
+      allow update: if isAuthenticated() && 
+                     resource.data.userId == request.auth.uid &&
+                     request.resource.data.diff(resource.data).affectedKeys()
+                       .hasOnly(['read', 'updatedAt']);
+      
+      // Delete: Users can delete own notifications
+      allow delete: if isAuthenticated() && 
+                     resource.data.userId == request.auth.uid;
+    }
+    
+    // ============================================
+    // WISHLIST (subcollection in users)
+    // ============================================
+    
+    match /users/{userId}/wishlist/{itemId} {
+      allow read, write: if isAuthenticated() && userId == request.auth.uid;
+    }
+    
+    // ============================================
+    // CART (subcollection in users)
+    // ============================================
+    
+    match /users/{userId}/cart/{itemId} {
+      allow read, write: if isAuthenticated() && userId == request.auth.uid;
+    }
+    
+    // ============================================
+    // ADDRESSES (subcollection in users)
+    // ============================================
+    
+    match /users/{userId}/addresses/{addressId} {
+      allow read: if isAuthenticated() && userId == request.auth.uid;
+      allow create: if isAuthenticated() && 
+                     userId == request.auth.uid &&
+                     hasValidAddressData(request.resource.data);
+      allow update: if isAuthenticated() && 
+                     userId == request.auth.uid &&
+                     request.resource.data.diff(resource.data).affectedKeys()
+                       .hasAny(['fullName', 'phone', 'addressLine1', 'addressLine2', 
+                                'city', 'state', 'pincode', 'country', 'isDefault']);
+      allow delete: if isAuthenticated() && userId == request.auth.uid;
+    }
+    
+    // ============================================
+    // STATISTICS (admin only)
+    // ============================================
+    
+    match /stats/{statId} {
+      allow read: if isAdmin();
+      allow write: if false; // Auto-generated by cloud functions
+    }
+    
+    // ============================================
+    // FALLBACK RULE - Deny everything by default
+    // ============================================
+    
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

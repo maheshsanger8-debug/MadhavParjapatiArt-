@@ -1,0 +1,53 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && 
+        firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Product images - authenticated users can upload, admin can delete
+    match /products/{productId}/{fileName} {
+      allow read: if true;
+      allow write: if isAuthenticated() && (
+        request.resource.size < 5 * 1024 * 1024 &&
+        request.resource.contentType.matches('image/.*')
+      );
+      allow delete: if isAdmin();
+    }
+    
+    // Temporary uploads - authenticated users can upload, admin can delete
+    match /products/temp/{fileName} {
+      allow read: if false;
+      allow write: if isAuthenticated() && (
+        request.resource.size < 5 * 1024 * 1024 &&
+        request.resource.contentType.matches('image/.*')
+      );
+      allow delete: if isAdmin();
+    }
+    
+    // Logos - admin only
+    match /logos/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin();
+      allow delete: if isAdmin();
+    }
+    
+    // Banners - admin only
+    match /banners/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin();
+      allow delete: if isAdmin();
+    }
+    
+    // Default deny
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

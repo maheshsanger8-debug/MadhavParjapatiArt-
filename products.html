@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Products - Madhav Prajapati Art | Handcrafted Clay Diyas from Bagwali, Panchkula</title>
+  <meta name="description" content="Explore our collection of premium handcrafted clay diyas. Traditional craftsmanship meets modern elegance. Made in Bagwali, Panchkula.">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="madhav-logo.svg">
+  <link rel="apple-touch-icon" href="madhav-logo.svg">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Products - Madhav Prajapati Art">
+  <meta property="og:description" content="Premium handcrafted clay diyas from Bagwali, Panchkula">
+  <meta property="og:image" content="madhav-logo.svg">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="120">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madhavprajapati.art/products">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Products - Madhav Prajapati Art">
+  <meta name="twitter:description" content="Premium handcrafted clay diyas">
+  <meta name="twitter:image" content="madhav-logo.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  
+  <style>
+    /* ===== PRODUCTS PAGE SPECIFIC STYLES ===== */
+    
+    /* Products Page Container */
+    .products-page {
+      min-height: 60vh;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0F0F0F;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .page-subtitle {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .location-badge {
+      display: inline-block;
+      background: rgba(212,175,55,0.1);
+      color: #B8860B;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 1rem;
+    }
+    
+    .location-badge i {
+      color: #D4AF37;
+      margin-right: 0.5rem;
+    }
+    
+    /* Filter Bar */
+    .filter-bar {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    
+    .filter-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .search-box {
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+    }
+    
+    .search-box i {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+    }
+    
+    .search-box input {
+      width: 100%;
+      padding: 0.875rem 1rem 0.875rem 2.5rem;
+      border: 2px solid #E0E0E0;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s ease;
+    }
+    
+    .search-box input:focus {
+      outline: none;
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.1);
+    }
+    
+    .filter-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .filter-select {
+      padding: 0.875rem 2rem 0.875rem 1rem;
+      border: 2px solid #E0E0E0;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      background: white;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      min-width: 160px;
+    }
+    
+    .filter-select:focus {
+      outline: none;
+      border-color: #D4AF37;
+    }
+    
+    .filter-btn {
+      padding: 0.875rem 1.5rem;
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .filter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212,175,55,0.3);
+    }
+    
+    .filter-btn i {
+      font-size: 0.9rem;
+    }
+    
+    /* Active Filters */
+    .active-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #E0E0E0;
+    }
+    
+    .filter-tag {
+      background: rgba(212,175,55,0.1);
+      color: #B8860B;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .filter-tag i {
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    
+    .filter-tag i:hover {
+      color: #DC3545;
+    }
+    
+    .clear-all {
+      color: #DC3545;
+      background: none;
+      border: none;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    
+    .clear-all:hover {
+      color: #B02A37;
+    }
+    
+    /* Results Info */
+    .results-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .results-count {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    
+    .results-count span {
+      font-weight: 600;
+      color: #D4AF37;
+    }
+    
+    .view-options {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .view-btn {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .view-btn:hover {
+      border-color: #D4AF37;
+      color: #D4AF37;
+    }
+    
+    .view-btn.active {
+      background: #D4AF37;
+      color: white;
+      border-color: #D4AF37;
+    }
+    
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .product-grid.list-view {
+      grid-template-columns: 1fr;
+    }
+    
+    .product-grid.list-view .product-card {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .product-grid.list-view .product-image {
+      width: 200px;
+      flex-shrink: 0;
+    }
+    
+    .product-grid.list-view .product-info {
+      flex: 1;
+    }
+    
+    /* Product Card */
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid rgba(212,175,55,0.1);
+      position: relative;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(212,175,55,0.15);
+      border-color: rgba(212,175,55,0.3);
+    }
+    
+    .product-image {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: #f5f5f5;
+    }
+    
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .product-card:hover .product-image img {
+      transform: scale(1.08);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .product-badge.new {
+      background: linear-gradient(135deg, #28A745, #5CB85C);
+      color: white;
+    }
+    
+    .product-badge.sale {
+      background: linear-gradient(135deg, #DC3545, #FF6B6B);
+      color: white;
+    }
+    
+    .product-badge.limited {
+      background: linear-gradient(135deg, #FF8C42, #FF6B6B);
+      color: white;
+    }
+    
+    .product-badge.bestseller {
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+    }
+    
+    .wishlist-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #D4AF37;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+    
+    .wishlist-btn:hover {
+      background: #D4AF37;
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .wishlist-btn.active {
+      background: #D4AF37;
+      color: white;
+    }
+    
+    .wishlist-btn.active i {
+      color: white;
+    }
+    
+    .product-info {
+      padding: 1.25rem;
+    }
+    
+    .product-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0F0F0F;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #D4AF37;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .original-price {
+      font-size: 0.9rem;
+      color: #999;
+      text-decoration: line-through;
+      font-weight: 400;
+    }
+    
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #D4AF37;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .product-rating span {
+      color: #666;
+      margin-left: 0.25rem;
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .product-actions .btn {
+      flex: 1;
+      padding: 0.6rem 0.5rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212,175,55,0.3);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+    }
+    
+    .btn-outline:hover {
+      background: #D4AF37;
+      color: white;
+    }
+    
+    /* Notification */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      box-shadow: 0 5px 20px rgba(212,175,55,0.3);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .notification.success {
+      background: linear-gradient(135deg, #28A745, #5CB85C);
+    }
+    
+    .notification.error {
+      background: linear-gradient(135deg, #DC3545, #FF6B6B);
+    }
+    
+    .notification.info {
+      background: linear-gradient(135deg, #17A2B8, #5BC0DE);
+    }
+    
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    .fade-out {
+      animation: fadeOut 0.3s ease forwards;
+    }
+    
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+    }
+    
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+    }
+    
+    .page-btn {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .page-btn:hover {
+      border-color: #D4AF37;
+      color: #D4AF37;
+    }
+    
+    .page-btn.active {
+      background: #D4AF37;
+      color: white;
+      border-color: #D4AF37;
+    }
+    
+    .page-btn.next,
+    .page-btn.prev {
+      width: auto;
+      padding: 0 1rem;
+    }
+    
+    /* Empty State */
+    .no-products {
+      text-align: center;
+      padding: 4rem 2rem;
+      grid-column: 1 / -1;
+    }
+    
+    .no-products i {
+      font-size: 4rem;
+      color: #D4AF37;
+      opacity: 0.3;
+      margin-bottom: 1.5rem;
+    }
+    
+    .no-products h3 {
+      font-size: 1.5rem;
+      color: #0F0F0F;
+      margin-bottom: 0.5rem;
+    }
+    
+    .no-products p {
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    .no-products .btn {
+      display: inline-flex;
+    }
+    
+    /* Loading Spinner */
+    .loading-spinner {
+      text-align: center;
+      padding: 4rem;
+      grid-column: 1 / -1;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(212,175,55,0.1);
+      border-top-color: #D4AF37;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      .filter-bar,
+      .product-card,
+      .page-btn,
+      .view-btn {
+        background: #1A1A1A;
+        border-color: rgba(212,175,55,0.1);
+      }
+      
+      .page-title {
+        color: #FFFFFF;
+      }
+      
+      .product-title {
+        color: #FFFFFF;
+      }
+      
+      .filter-select,
+      .search-box input {
+        background: #2A2A2A;
+        border-color: #404040;
+        color: #FFFFFF;
+      }
+      
+      .results-count {
+        color: #CCCCCC;
+      }
+      
+      .product-rating span {
+        color: #CCCCCC;
+      }
+      
+      .no-products h3 {
+        color: #FFFFFF;
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .filter-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .search-box {
+        width: 100%;
+      }
+      
+      .filter-group {
+        justify-content: space-between;
+      }
+      
+      .filter-select {
+        flex: 1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .products-page {
+        padding: 1rem;
+      }
+      
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-grid.list-view .product-card {
+        flex-direction: column;
+      }
+      
+      .product-grid.list-view .product-image {
+        width: 100%;
+      }
+      
+      .filter-group {
+        flex-direction: column;
+      }
+      
+      .filter-select {
+        width: 100%;
+      }
+      
+      .filter-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .pagination {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- ===== STATIC FALLBACK PRODUCTS PAGE WITH WORKING BUTTONS ===== -->
+    <div class="products-page">
+      <div class="page-header">
+        <h1 class="page-title">Our Collection</h1>
+        <p class="page-subtitle">Handcrafted clay diyas, each piece unique from Bagwali, Panchkula</p>
+        <div class="location-badge">
+          <i class="fas fa-map-marker-alt"></i> Handcrafted in Bagwali, Panchkula
+        </div>
+      </div>
+      
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <div class="filter-row">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search diyas..." id="searchInput">
+          </div>
+          
+          <div class="filter-group">
+            <select class="filter-select" id="categoryFilter">
+              <option value="all">All Categories</option>
+              <option value="diwali">Diwali Collection</option>
+              <option value="wedding">Wedding Diyas</option>
+              <option value="temple">Temple Diyas</option>
+              <option value="decorative">Decorative</option>
+              <option value="custom">Custom Orders</option>
+            </select>
+            
+            <select class="filter-select" id="sortFilter">
+              <option value="newest">Newest First</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+            
+            <button class="filter-btn" id="applyFilterBtn">
+              <i class="fas fa-sliders-h"></i> Apply
+            </button>
+          </div>
+        </div>
+        
+        <div class="active-filters" id="activeFilters" style="display: none;">
+          <span class="filter-tag" id="categoryTag">Category: All <i class="fas fa-times" id="removeCategory"></i></span>
+          <span class="filter-tag" id="sortTag">Sort: Newest <i class="fas fa-times" id="removeSort"></i></span>
+          <button class="clear-all" id="clearAllBtn">Clear All</button>
+        </div>
+      </div>
+      
+      <!-- Results Info -->
+      <div class="results-info">
+        <div class="results-count" id="resultsCount">
+          Showing <span id="startCount">1</span>-<span id="endCount">8</span> of <span id="totalCount">24</span> products
+        </div>
+        <div class="view-options">
+          <button class="view-btn active" id="gridViewBtn" title="Grid view">
+            <i class="fas fa-th"></i>
+          </button>
+          <button class="view-btn" id="listViewBtn" title="List view">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Product Grid -->
+      <div class="product-grid" id="productGrid">
+        <!-- Product 1 -->
+        <div class="product-card" data-id="1" data-category="diwali" data-price="899" data-rating="4.5" data-name="Premium Gold Diya">
+          <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg" alt="Premium Gold Diya" loading="lazy">
+            <span class="product-badge bestseller">Best Seller</span>
+            <button class="wishlist-btn" data-product-id="1">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Premium Gold Diya</h3>
+            <div class="product-price">₹899</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              <span>(24)</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline add-to-cart" data-product-id="1" data-product-name="Premium Gold Diya" data-product-price="899" data-product-image="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg">Add to Cart</button>
+              <button class="btn btn-primary buy-now" data-product-id="1" data-product-name="Premium Gold Diya" data-product-price="899" data-product-image="https://m.media-amazon.com/images/I/71J8vH-tSaL._SL1500_.jpg">Buy Now</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="product-card" data-id="2" data-category="wedding" data-price="1499" data-rating="5" data-name="Wedding Special Diya Set">
+          <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/71nIRVv8XzL._SL1500_.jpg" alt="Wedding Special Diya Set" loading="lazy">
+            <span class="product-badge new">New</span>
+            <button class="wishlist-btn" data-product-id="2">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Wedding Special Diya Set</h3>
+            <div class="product-price">₹1,499</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <span>(8)</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline add-to-cart" data-product-id="2" data-product-name="Wedding Special Diya Set" data-product-price="1499" data-product-image="https://m.media-amazon.com/images/I/71nIRVv8XzL._SL1500_.jpg">Add to Cart</button>
+              <button class="btn btn-primary buy-now" data-product-id="2" data-product-name="Wedding Special Diya Set" data-product-price="1499" data-product-image="https://m.media-amazon.com/images/I/71nIRVv8XzL._SL1500_.jpg">Buy Now</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="product-card" data-id="3" data-category="temple" data-price="594" data-original-price="699" data-rating="4" data-name="Temple Diya Large">
+          <div class="product-image">
+            <img src="https://images.pexels.com/photos/5722907/pexels-photo-5722907.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Temple Diya" loading="lazy">
+            <span class="product-badge sale">-15%</span>
+            <button class="wishlist-btn" data-product-id="3">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Temple Diya (Large)</h3>
+            <div class="product-price">
+              ₹594 <span class="original-price">₹699</span>
+            </div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+              <span>(12)</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline add-to-cart" data-product-id="3" data-product-name="Temple Diya Large" data-product-price="594" data-product-image="https://images.pexels.com/photos/5722907/pexels-photo-5722907.jpeg?auto=compress&cs=tinysrgb&w=600">Add to Cart</button>
+              <button class="btn btn-primary buy-now" data-product-id="3" data-product-name="Temple Diya Large" data-product-price="594" data-product-image="https://images.pexels.com/photos/5722907/pexels-photo-5722907.jpeg?auto=compress&cs=tinysrgb&w=600">Buy Now</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="product-card" data-id="4" data-category="decorative" data-price="1199" data-rating="5" data-name="Decorative Peacock Diya">
+          <div class="product-image">
+            <img src="https://images.pexels.com/photos/5425041/pexels-photo-5425041.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Decorative Diya" loading="lazy">
+            <span class="product-badge limited">Limited</span>
+            <button class="wishlist-btn" data-product-id="4">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Decorative Peacock Diya</h3>
+            <div class="product-price">₹1,199</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <span>(32)</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline add-to-cart" data-product-id="4" data-product-name="Decorative Peacock Diya" data-product-price="1199" data-product-image="https://images.pexels.com/photos/5425041/pexels-photo-5425041.jpeg?auto=compress&cs=tinysrgb&w=600">Add to Cart</button>
+              <button class="btn btn-primary buy-now" data-product-id="4" data-product-name="Decorative Peacock Diya" data-product-price="1199" data-product-image="https://images.pexels.com/photos/5425041/pexels-photo-5425041.jpeg?auto=compress&cs=tinysrgb&w=600">Buy Now</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 5 -->
+        <div class="product-card" data-id="5" data-category="temple" data-price="399" data-rating="4" data-name="Traditional Clay Diya">
+          <div class="product-image">
+            <img src="https://images.pexels.com/photos/461937/pexels-photo-461937.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Traditional Diya" loading="lazy">
+            <button class="wishlist-btn" data-product-id="5">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Traditional Clay Diya</h3>
+            <div class="product-price">₹399</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+              <span>(45)</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline add-to-cart" data-product-id="5" data-product-name="Traditional Clay Diya" data-product-price="399" data-product-image="https://images.pexels.com/photos/461937/pexels-photo-461937.jpeg?auto=compress&cs=tinysrgb&w=600">Add to Cart</button>
+              <button class="btn btn-primary buy-now" data-product-id="5" data-product-name="Traditional Clay Diya" data-product-price="399" data-product-image="https://images.pexels.com/photos/461937/pexels-photo-461937.jpeg?auto=compress&cs=tinysrgb&w=600">Buy Now</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 6 -->
+        <div class="product-card" data-id="6" data-category="custom" data-price="2499" data-rating="5" data-name="Custom Design Diya">
+          <div class="product-image">
+            <img src="https://images.pexels.com/photos/3829228/pexels-photo-3829228.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Custom Design Diya" loading="lazy">
+            <span class="product-badge new">New</span>
+            <button class="wishlist-btn" data-product-id="6">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Custom Design Diya</h3>
+            <div class="product-price">₹2,499</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <span>(6)</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline add-to-cart" data-product-id="6" data-product-name="Custom Design Diya" data-product-price="2499" data-product-image="https://images.pexels.com/photos/3829228/pexels-photo-3829228.jpeg?auto=compress&cs=tinysrgb&w=600">Add to Cart</button>
+              <button class="btn btn-primary buy-now" data-product-id="6" data-product-name="Custom Design Diya" data-product-price="2499" data-product-image="https://images.pexels.com/photos/3829228/pexels-photo-3829228.jpeg?auto=compress&cs=tinysrgb&w=600">Buy Now</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 7 -->
+        <div class="product-card" data-id="7" data-category="decorative" data-price="899" data-rating="4.5" data-name="Floral Design Diya">
+          <div class="product-image">
+            <img src="https://images.pexels.com/photos/5425051/pexels-photo-5425051.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Floral Design Diya" loading="lazy">
+            <span class="product-badge limited">Limited</span>
+            <button class="wishlist-btn" data-product-id="7">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Floral Design Diya</h3>
+            <div class="product-price">₹899</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              <span>(18)</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline add-to-cart" data-product-id="7" data-product-name="Floral Design Diya" data-product-price="899" data-product-image="https://images.pexels.com/photos/5425051/pexels-photo-5425051.jpeg?auto=compress&cs=tinysrgb&w=600">Add to Cart</button>
+              <button class="btn btn-primary buy-now" data-product-id="7" data-product-name="Floral Design Diya" data-product-price="899" data-product-image="https://images.pexels.com/photos/5425051/pexels-photo-5425051.jpeg?auto=compress&cs=tinysrgb&w=600">Buy Now</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 8 -->
+        <div class="product-card" data-id="8" data-category="diwali" data-price="1999" data-rating="5" data-name="Artisan Collection">
+          <div class="product-image">
+            <img src="https://images.pexels.com/photos/5998519/pexels-photo-5998519.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Artisan Collection" loading="lazy">
+            <span class="product-badge bestseller">Best Seller</span>
+            <button class="wishlist-btn" data-product-id="8">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Artisan Collection</h3>
+            <div class="product-price">₹1,999</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <span>(15)</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-outline add-to-cart" data-product-id="8" data-product-name="Artisan Collection" data-product-price="1999" data-product-image="https://images.pexels.com/photos/5998519/pexels-photo-5998519.jpeg?auto=compress&cs=tinysrgb&w=600">Add to Cart</button>
+              <button class="btn btn-primary buy-now" data-product-id="8" data-product-name="Artisan Collection" data-product-price="1999" data-product-image="https://images.pexels.com/photos/5998519/pexels-photo-5998519.jpeg?auto=compress&cs=tinysrgb&w=600">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="page-btn prev" id="prevPageBtn" disabled>Previous</button>
+        <button class="page-btn active" data-page="1">1</button>
+        <button class="page-btn" data-page="2">2</button>
+        <button class="page-btn" data-page="3">3</button>
+        <button class="page-btn next" id="nextPageBtn">Next</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Script -->
+  <script type="module" src="app.js"></script>
+  
+  <!-- WORKING BUTTONS JAVASCRIPT -->
+  <script>
+    // ============================================
+    // ALL BUTTONS WORKING - COMPLETE FUNCTIONALITY
+    // Madhav Prajapati Art - Bagwali, Panchkula
+    // ============================================
+    
+    (function() {
+      'use strict';
+      
+      // State management
+      let currentPage = 1;
+      let totalPages = 3;
+      let currentView = 'grid';
+      let activeCategory = 'all';
+      let activeSort = 'newest';
+      let searchQuery = '';
+      
+      // Products data (from DOM)
+      const products = Array.from(document.querySelectorAll('.product-card'));
+      const totalProducts = products.length;
+      
+      // DOM Elements
+      const productGrid = document.getElementById('productGrid');
+      const searchInput = document.getElementById('searchInput');
+      const categoryFilter = document.getElementById('categoryFilter');
+      const sortFilter = document.getElementById('sortFilter');
+      const applyFilterBtn = document.getElementById('applyFilterBtn');
+      const clearAllBtn = document.getElementById('clearAllBtn');
+      const activeFilters = document.getElementById('activeFilters');
+      const categoryTag = document.getElementById('categoryTag');
+      const sortTag = document.getElementById('sortTag');
+      const removeCategory = document.getElementById('removeCategory');
+      const removeSort = document.getElementById('removeSort');
+      const gridViewBtn = document.getElementById('gridViewBtn');
+      const listViewBtn = document.getElementById('listViewBtn');
+      const prevPageBtn = document.getElementById('prevPageBtn');
+      const nextPageBtn = document.getElementById('nextPageBtn');
+      const pageButtons = document.querySelectorAll('.page-btn[data-page]');
+      const startCountSpan = document.getElementById('startCount');
+      const endCountSpan = document.getElementById('endCount');
+      const totalCountSpan = document.getElementById('totalCount');
+      
+      // Initialize counts
+      if (totalCountSpan) totalCountSpan.textContent = totalProducts;
+      updateResultsCount();
+      
+      // ===== NOTIFICATION SYSTEM =====
+      function showNotification(message, type = 'success') {
+        // Remove existing notification
+        const existing = document.querySelector('.notification');
+        if (existing) existing.remove();
+        
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+          <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+          <span>${message}</span>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.classList.add('fade-out');
+          setTimeout(() => notification.remove(), 300);
+        }, 3000);
+      }
+      
+      // ===== WISHLIST FUNCTIONALITY =====
+      function toggleWishlist(btn) {
+        const icon = btn.querySelector('i');
+        const productId = btn.dataset.productId;
+        
+        if (icon.classList.contains('far')) {
+          icon.classList.remove('far');
+          icon.classList.add('fas');
+          btn.classList.add('active');
+          showNotification('Added to wishlist!', 'success');
+          
+          // Store in localStorage
+          let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+          if (!wishlist.includes(productId)) {
+            wishlist.push(productId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+          }
+        } else {
+          icon.classList.remove('fas');
+          icon.classList.add('far');
+          btn.classList.remove('active');
+          showNotification('Removed from wishlist', 'info');
+          
+          // Remove from localStorage
+          let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+          wishlist = wishlist.filter(id => id !== productId);
+          localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+      }
+      
+      // Attach wishlist listeners
+      document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleWishlist(btn);
+        });
+      });
+      
+      // ===== ADD TO CART FUNCTIONALITY =====
+      function addToCart(productId, productName, productPrice, productImage) {
+        // Get existing cart
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        
+        // Check if product already in cart
+        const existingItem = cart.find(item => item.id === productId);
+        
+        if (existingItem) {
+          existingItem.quantity = (existingItem.quantity || 1) + 1;
+        } else {
+          cart.push({
+            id: productId,
+            name: productName,
+            price: parseInt(productPrice),
+            image: productImage,
+            quantity: 1
+          });
+        }
+        
+        // Save to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Update cart count if exists
+        const cartCount = document.querySelector('.cart-count');
+        if (cartCount) {
+          const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+          cartCount.textContent = totalItems;
+        }
+        
+        // Animate cart icon
+        const cartIcon = document.querySelector('.cart-icon');
+        if (cartIcon) {
+          cartIcon.classList.add('bounce');
+          setTimeout(() => cartIcon.classList.remove('bounce'), 500);
+        }
+        
+        showNotification(`${productName} added to cart!`, 'success');
+      }
+      
+      // Attach add to cart listeners
+      document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const productId = btn.dataset.productId;
+          const productName = btn.dataset.productName;
+          const productPrice = btn.dataset.productPrice;
+          const productImage = btn.dataset.productImage;
+          
+          addToCart(productId, productName, productPrice, productImage);
+        });
+      });
+      
+      // ===== BUY NOW FUNCTIONALITY =====
+      document.querySelectorAll('.buy-now').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const productId = btn.dataset.productId;
+          const productName = btn.dataset.productName;
+          const productPrice = btn.dataset.productPrice;
+          const productImage = btn.dataset.productImage;
+          
+          // Add to cart
+          addToCart(productId, productName, productPrice, productImage);
+          
+          // Redirect to checkout
+          setTimeout(() => {
+            window.location.hash = 'checkout';
+          }, 500);
+        });
+      });
+      
+      // ===== PRODUCT CARD CLICK =====
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          // Don't navigate if clicking on button
+          if (e.target.closest('button')) return;
+          
+          const productId = card.dataset.id;
+          window.location.hash = `product-detail?id=${productId}`;
+        });
+      });
+      
+      // ===== FILTER FUNCTIONALITY =====
+      function applyFilters() {
+        const category = categoryFilter.value;
+        const sort = sortFilter.value;
+        const search = searchInput.value.toLowerCase().trim();
+        
+        activeCategory = category;
+        activeSort = sort;
+        searchQuery = search;
+        
+        // Filter products
+        let visibleProducts = products.filter(product => {
+          const productCategory = product.dataset.category;
+          const productName = product.dataset.name?.toLowerCase() || '';
+          
+          // Category filter
+          if (category !== 'all' && productCategory !== category) {
+            return false;
+          }
+          
+          // Search filter
+          if (search && !productName.includes(search)) {
+            return false;
+          }
+          
+          return true;
+        });
+        
+        // Sort products
+        visibleProducts = sortProducts(visibleProducts, sort);
+        
+        // Update UI
+        updateActiveFiltersDisplay(category, sort);
+        updateProductVisibility(visibleProducts);
+        updateResultsCount(visibleProducts.length);
+        updatePagination(visibleProducts.length);
+        
+        // Show notification
+        if (visibleProducts.length === 0) {
+          showNotification('No products match your filters', 'info');
+        } else {
+          showNotification(`Found ${visibleProducts.length} products`, 'success');
+        }
+      }
+      
+      function sortProducts(products, sortBy) {
+        return [...products].sort((a, b) => {
+          const priceA = parseInt(a.dataset.price) || 0;
+          const priceB = parseInt(b.dataset.price) || 0;
+          const ratingA = parseFloat(a.dataset.rating) || 0;
+          const ratingB = parseFloat(b.dataset.rating) || 0;
+          
+          switch(sortBy) {
+            case 'price-low':
+              return priceA - priceB;
+            case 'price-high':
+              return priceB - priceA;
+            case 'rating':
+              return ratingB - ratingA;
+            default:
+              // Newest first - using data-id as proxy for now
+              return parseInt(b.dataset.id) - parseInt(a.dataset.id);
+          }
+        });
+      }
+      
+      function updateActiveFiltersDisplay(category, sort) {
+        if (category !== 'all' || sort !== 'newest') {
+          activeFilters.style.display = 'flex';
+          
+          // Update category tag
+          if (category !== 'all') {
+            categoryTag.style.display = 'inline-flex';
+            const categoryText = categoryFilter.options[categoryFilter.selectedIndex]?.text || category;
+            categoryTag.innerHTML = `Category: ${categoryText} <i class="fas fa-times" id="removeCategory"></i>`;
+          } else {
+            categoryTag.style.display = 'none';
+          }
+          
+          // Update sort tag
+          if (sort !== 'newest') {
+            sortTag.style.display = 'inline-flex';
+            const sortText = sortFilter.options[sortFilter.selectedIndex]?.text || sort;
+            sortTag.innerHTML = `Sort: ${sortText} <i class="fas fa-times" id="removeSort"></i>`;
+          } else {
+            sortTag.style.display = 'none';
+          }
+          
+          // Reattach remove listeners
+          document.getElementById('removeCategory')?.addEventListener('click', removeCategoryFilter);
+          document.getElementById('removeSort')?.addEventListener('click', removeSortFilter);
+        } else {
+          activeFilters.style.display = 'none';
+        }
+      }
+      
+      function removeCategoryFilter() {
+        categoryFilter.value = 'all';
+        applyFilters();
+      }
+      
+      function removeSortFilter() {
+        sortFilter.value = 'newest';
+        applyFilters();
+      }
+      
+      function updateProductVisibility(visibleProducts) {
+        products.forEach(product => {
+          product.style.display = visibleProducts.includes(product) ? 'block' : 'none';
+        });
+      }
+      
+      function updateResultsCount(visibleCount = products.filter(p => p.style.display !== 'none').length) {
+        const perPage = 8;
+        const start = (currentPage - 1) * perPage + 1;
+        const end = Math.min(currentPage * perPage, visibleCount);
+        
+        startCountSpan.textContent = visibleCount > 0 ? start : 0;
+        endCountSpan.textContent = end;
+      }
+      
+      function updatePagination(visibleCount) {
+        const perPage = 8;
+        const newTotalPages = Math.ceil(visibleCount / perPage);
+        
+        // Hide/show page buttons based on new total
+        pageButtons.forEach(btn => {
+          const pageNum = parseInt(btn.dataset.page);
+          btn.style.display = pageNum <= newTotalPages ? 'flex' : 'none';
+        });
+        
+        // Update next/prev buttons
+        if (prevPageBtn) {
+          prevPageBtn.disabled = currentPage === 1;
+        }
+        
+        if (nextPageBtn) {
+          nextPageBtn.disabled = currentPage === newTotalPages || newTotalPages === 0;
+        }
+      }
+      
+      // Apply filter button
+      applyFilterBtn?.addEventListener('click', applyFilters);
+      
+      // Clear all filters
+      clearAllBtn?.addEventListener('click', () => {
+        categoryFilter.value = 'all';
+        sortFilter.value = 'newest';
+        searchInput.value = '';
+        applyFilters();
+      });
+      
+      // Search on enter
+      searchInput?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          applyFilters();
+        }
+      });
+      
+      // ===== VIEW TOGGLE FUNCTIONALITY =====
+      function setView(view) {
+        currentView = view;
+        
+        if (view === 'grid') {
+          productGrid.classList.remove('list-view');
+          gridViewBtn.classList.add('active');
+          listViewBtn.classList.remove('active');
+        } else {
+          productGrid.classList.add('list-view');
+          listViewBtn.classList.add('active');
+          gridViewBtn.classList.remove('active');
+        }
+      }
+      
+      gridViewBtn?.addEventListener('click', () => setView('grid'));
+      listViewBtn?.addEventListener('click', () => setView('list'));
+      
+      // ===== PAGINATION FUNCTIONALITY =====
+      function goToPage(page) {
+        currentPage = page;
+        
+        // Update active page button
+        pageButtons.forEach(btn => {
+          const pageNum = parseInt(btn.dataset.page);
+          if (pageNum === currentPage) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+        
+        // Update prev/next buttons
+        if (prevPageBtn) {
+          prevPageBtn.disabled = currentPage === 1;
+        }
+        
+        if (nextPageBtn) {
+          const visibleCount = products.filter(p => p.style.display !== 'none').length;
+          const totalPages = Math.ceil(visibleCount / 8);
+          nextPageBtn.disabled = currentPage === totalPages || totalPages === 0;
+        }
+        
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        updateResultsCount();
+      }
+      
+      pageButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const page = parseInt(btn.dataset.page);
+          goToPage(page);
+        });
+      });
+      
+      prevPageBtn?.addEventListener('click', () => {
+        if (currentPage > 1) {
+          goToPage(currentPage - 1);
+        }
+      });
+      
+      nextPageBtn?.addEventListener('click', () => {
+        const visibleCount = products.filter(p => p.style.display !== 'none').length;
+        const totalPages = Math.ceil(visibleCount / 8);
+        
+        if (currentPage < totalPages) {
+          goToPage(currentPage + 1);
+        }
+      });
+      
+      // ===== LOAD WISHLIST FROM LOCALSTORAGE =====
+      function loadWishlistFromStorage() {
+        const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+        
+        document.querySelectorAll('.wishlist-btn').forEach(btn => {
+          const productId = btn.dataset.productId;
+          if (wishlist.includes(productId)) {
+            const icon = btn.querySelector('i');
+            icon.classList.remove('far');
+            icon.classList.add('fas');
+            btn.classList.add('active');
+          }
+        });
+      }
+      
+      // Load wishlist on page load
+      loadWishlistFromStorage();
+      
+      // ===== UPDATE CART COUNT =====
+      function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const cartCount = document.querySelector('.cart-count');
+        if (cartCount) {
+          const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+          cartCount.textContent = totalItems;
+        }
+      }
+      
+      updateCartCount();
+      
+      // Listen for cart updates from other tabs
+      window.addEventListener('storage', (e) => {
+        if (e.key === 'cart') {
+          updateCartCount();
+        }
+      });
+      
+      // Add bounce animation style if not exists
+      if (!document.querySelector('#bounce-style')) {
+        const style = document.createElement('style');
+        style.id = 'bounce-style';
+        style.textContent = `
+          @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+          }
+          .bounce {
+            animation: bounce 0.5s ease;
+          }
+        `;
+        document.head.appendChild(style);
+      }
+      
+      console.log('✅ All buttons working - Products page ready');
+    })();
+  </script>
+</body>
+</html>

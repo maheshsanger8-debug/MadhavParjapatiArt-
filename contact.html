@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Contact Us - Madhav Prajapati Art | Handcrafted Clay Diyas</title>
+  <meta name="description" content="Get in touch with Madhav Prajapati Art in Bagwali, Panchkula. We'd love to hear from you about our handcrafted clay diyas, custom orders, or any questions.">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="madhav-logo.svg">
+  <link rel="apple-touch-icon" href="madhav-logo.svg">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Contact Us - Madhav Prajapati Art">
+  <meta property="og:description" content="Get in touch with us in Bagwali, Panchkula for custom orders, inquiries, or support.">
+  <meta property="og:image" content="madhav-logo.svg">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="120">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madhavprajapati.art/contact">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Contact Us - Madhav Prajapati Art">
+  <meta name="twitter:description" content="Get in touch with us in Bagwali, Panchkula for custom orders, inquiries, or support.">
+  <meta name="twitter:image" content="madhav-logo.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  
+  <style>
+    /* ===== CONTACT PAGE SPECIFIC STYLES ===== */
+    
+    /* Contact Page Container */
+    .contact-page {
+      min-height: 60vh;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .contact-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0F0F0F;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .contact-header p {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Contact Info Grid */
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .contact-card {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,175,55,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #D4AF37, #FF8C42);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -12px rgba(212,175,55,0.2);
+    }
+    
+    .contact-card:hover::before {
+      transform: translateX(0);
+    }
+    
+    .contact-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(212,175,55,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: #D4AF37;
+      font-size: 1.8rem;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-card:hover .contact-icon {
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .contact-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 0.75rem;
+    }
+    
+    .contact-card p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+    
+    .contact-card .contact-detail {
+      font-weight: 600;
+      color: #D4AF37;
+      margin-top: 0.5rem;
+    }
+    
+    .contact-card .btn-outline {
+      margin-top: 1rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Contact Form Section */
+    .contact-form-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      background: white;
+      border-radius: 32px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    
+    .form-info {
+      padding-right: 2rem;
+      border-right: 1px solid rgba(212,175,55,0.2);
+    }
+    
+    .form-info h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0F0F0F;
+      margin-bottom: 1rem;
+    }
+    
+    .form-info p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    .info-features {
+      margin-top: 2rem;
+    }
+    
+    .info-feature {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(212,175,55,0.05);
+      border-radius: 12px;
+    }
+    
+    .info-feature i {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #D4AF37;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    
+    .info-feature span {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    
+    .info-feature strong {
+      color: #D4AF37;
+      display: block;
+      font-weight: 600;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      width: 100%;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #666;
+    }
+    
+    .form-label i {
+      color: #D4AF37;
+      margin-right: 0.5rem;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 2px solid #E0E0E0;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.1);
+    }
+    
+    .form-control.error {
+      border-color: #DC3545;
+    }
+    
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .error-message {
+      color: #DC3545;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+    }
+    
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #D4AF37;
+    }
+    
+    .checkbox-group label {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+    }
+    
+    .submit-btn i {
+      font-size: 1.1rem;
+    }
+    
+    /* Map Section */
+    .map-section {
+      margin-bottom: 3rem;
+    }
+    
+    .map-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .map-container {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+      border: 1px solid rgba(212,175,55,0.1);
+      height: 400px;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+      background: white;
+      border-radius: 32px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    
+    .faq-section h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0F0F0F;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .faq-item {
+      padding: 1.5rem;
+      background: rgba(212,175,55,0.03);
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,55,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      transform: translateY(-3px);
+      border-color: rgba(212,175,55,0.3);
+      box-shadow: 0 10px 25px rgba(212,175,55,0.1);
+    }
+    
+    .faq-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #D4AF37;
+      margin-bottom: 0.75rem;
+    }
+    
+    .faq-item p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    /* Business Hours */
+    .hours-section {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 800px;
+      margin: 2rem auto 0;
+    }
+    
+    .hour-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    
+    .hour-card .day {
+      font-weight: 600;
+      color: #D4AF37;
+      margin-bottom: 0.5rem;
+    }
+    
+    .hour-card .time {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    
+    .hour-card .status {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.25rem 1rem;
+      background: rgba(40,167,69,0.1);
+      color: #28A745;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .hour-card .status.closed {
+      background: rgba(220,53,69,0.1);
+      color: #DC3545;
+    }
+    
+    /* Loading Spinner */
+    .loading-spinner {
+      text-align: center;
+      padding: 3rem;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(212,175,55,0.1);
+      border-top-color: #D4AF37;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Success Message */
+    .success-message {
+      text-align: center;
+      padding: 3rem;
+    }
+    
+    .success-message i {
+      font-size: 5rem;
+      color: #28A745;
+      margin-bottom: 1.5rem;
+    }
+    
+    .success-message h3 {
+      font-size: 1.8rem;
+      color: #0F0F0F;
+      margin-bottom: 1rem;
+    }
+    
+    .success-message p {
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      .contact-card,
+      .contact-form-section,
+      .faq-section,
+      .hour-card {
+        background: #1A1A1A;
+        border-color: rgba(212,175,55,0.1);
+      }
+      
+      .contact-header h1,
+      .form-info h2,
+      .faq-section h2,
+      .map-section h2,
+      .contact-card h3,
+      .success-message h3 {
+        color: #FFFFFF;
+      }
+      
+      .contact-header p,
+      .contact-card p,
+      .form-info p,
+      .faq-item p,
+      .hour-card .time,
+      .checkbox-group label {
+        color: #CCCCCC;
+      }
+      
+      .form-control {
+        background: #2D2D2D;
+        border-color: #404040;
+        color: #FFFFFF;
+      }
+      
+      .form-label {
+        color: #CCCCCC;
+      }
+      
+      .info-feature {
+        background: #2D2D2D;
+      }
+      
+      .info-feature i {
+        background: #1A1A1A;
+      }
+      
+      .faq-item {
+        background: #2D2D2D;
+      }
+      
+      .form-info {
+        border-right-color: rgba(212,175,55,0.2);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .contact-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .contact-form-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .form-info {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(212,175,55,0.2);
+        padding-bottom: 2rem;
+      }
+      
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hours-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .contact-page {
+        padding: 1rem;
+      }
+      
+      .contact-header h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .contact-form-section {
+        padding: 2rem;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      
+      .faq-section {
+        padding: 2rem;
+      }
+      
+      .map-container {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- App will be mounted here -->
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p style="color: #D4AF37;">Loading contact page...</p>
+    </div>
+  </div>
+  
+  <!-- Main Script -->
+  <script type="module" src="app.js"></script>
+  
+  <!-- Fallback Contact Page with CORRECT ADDRESS -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // Fallback if app.js fails to load
+      setTimeout(function() {
+        const app = document.getElementById('app');
+        if (app && app.children.length === 1 && app.children[0].className === 'loading-spinner') {
+          console.warn('App failed to load - showing fallback contact page');
+          
+          app.innerHTML = `
+            <div class="contact-page">
+              <div class="contact-header">
+                <h1>Get in Touch</h1>
+                <p>We'd love to hear from you. Reach out with any questions or custom orders.</p>
+              </div>
+              
+              <div class="contact-info-grid">
+                <!-- Visit Us Card - CORRECT ADDRESS: Bagwali, Panchkula -->
+                <div class="contact-card">
+                  <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                  <h3>Visit Us</h3>
+                  <p>Madhav Prajapati Art Studio</p>
+                  <p>Bagwali, Panchkula</p>
+                  <p>Haryana 134113</p>
+                  <a href="https://maps.google.com/?q=Bagwali,Panchkula,Haryana" target="_blank" class="btn-link">
+                    Get Directions <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+                
+                <div class="contact-card">
+                  <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                  <h3>Call Us</h3>
+                  <p>Mon-Sat, 10am-7pm</p>
+                  <p class="contact-detail">+91 98765 43210</p>
+                  <button class="btn btn-outline" onclick="window.location.href='tel:+919876543210'">
+                    <i class="fas fa-phone"></i> Call Now
+                  </button>
+                </div>
+                
+                <div class="contact-card">
+                  <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                  <h3>Email Us</h3>
+                  <p>General Inquiries</p>
+                  <p class="contact-detail">hello@madhavprajapati.art</p>
+                  <p>Custom Orders</p>
+                  <p class="contact-detail">custom@madhavprajapati.art</p>
+                </div>
+                
+                <div class="contact-card">
+                  <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                  <h3>Business Hours</h3>
+                  <p>Monday - Friday: 10am - 7pm</p>
+                  <p>Saturday: 11am - 5pm</p>
+                  <p>Sunday: Closed</p>
+                </div>
+              </div>
+              
+              <div class="contact-form-section">
+                <div class="form-info">
+                  <h2>Send us a Message</h2>
+                  <p>Whether you have a question about our products, need help with a custom order, or just want to say hello, we're here for you.</p>
+                  
+                  <div class="info-features">
+                    <div class="info-feature">
+                      <i class="fas fa-clock"></i>
+                      <span><strong>Quick Response</strong> Within 24 hours</span>
+                    </div>
+                    <div class="info-feature">
+                      <i class="fas fa-shield-alt"></i>
+                      <span><strong>Secure</strong> Your privacy matters</span>
+                    </div>
+                    <div class="info-feature">
+                      <i class="fas fa-heart"></i>
+                      <span><strong>Handcrafted</strong> Made with love in Bagwali, Panchkula</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <form id="fallbackContactForm" class="contact-form">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label"><i class="fas fa-user"></i> Name</label>
+                      <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label"><i class="fas fa-envelope"></i> Email</label>
+                      <input type="email" class="form-control" id="email" required>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="form-label"><i class="fas fa-tag"></i> Subject</label>
+                    <select class="form-control" id="subject">
+                      <option value="general">General Inquiry</option>
+                      <option value="custom">Custom Order</option>
+                      <option value="support">Support</option>
+                      <option value="feedback">Feedback</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="form-label"><i class="fas fa-comment"></i> Message</label>
+                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                  </div>
+                  
+                  <div class="checkbox-group">
+                    <input type="checkbox" id="newsletter" checked>
+                    <label for="newsletter">Subscribe to our newsletter for updates and offers</label>
+                  </div>
+                  
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                  </button>
+                </form>
+              </div>
+              
+              <!-- Map Section - Panchkula, Haryana -->
+              <div class="map-section">
+                <h2>Find Us in Bagwali, Panchkula</h2>
+                <div class="map-container">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54848.54848!2d76.848!3d30.694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f93d5a0b12345%3A0x1234567890abcdef!2sPanchkula%2C%20Haryana!5e0!3m2!1sen!2sin!4v1634567890123!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                  </iframe>
+                </div>
+              </div>
+              
+              <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                  <div class="faq-item">
+                    <h3>How long does it take to respond?</h3>
+                    <p>We typically respond to all inquiries within 24 hours during business days.</p>
+                  </div>
+                  <div class="faq-item">
+                    <h3>Do you accept custom orders?</h3>
+                    <p>Yes! We love creating custom diyas for weddings, festivals, and special occasions.</p>
+                  </div>
+                  <div class="faq-item">
+                    <h3>Can I visit your studio in Bagwali?</h3>
+                    <p>Absolutely! We welcome visitors by appointment. Please contact us to schedule a visit to our Bagwali, Panchkula studio.</p>
+                  </div>
+                  <div class="faq-item">
+                    <h3>Do you ship internationally?</h3>
+                    <p>Yes, we ship worldwide from Bagwali, Panchkula. Shipping costs and delivery times vary by location.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="hours-section">
+                <h2>Business Hours (IST)</h2>
+                <div class="hours-grid">
+                  <div class="hour-card">
+                    <div class="day">Monday - Friday</div>
+                    <div class="time">10:00 AM - 7:00 PM</div>
+                    <span class="status">Open</span>
+                  </div>
+                  <div class="hour-card">
+                    <div class="day">Saturday</div>
+                    <div class="time">11:00 AM - 5:00 PM</div>
+                    <span class="status">Open</span>
+                  </div>
+                  <div class="hour-card">
+                    <div class="day">Sunday</div>
+                    <div class="time">Closed</div>
+                    <span class="status closed">Closed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          // Add form submit handler
+          const form = document.getElementById('fallbackContactForm');
+          if (form) {
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              
+              // Show success message
+              const formSection = document.querySelector('.contact-form-section');
+              formSection.innerHTML = `
+                <div class="success-message">
+                  <i class="fas fa-check-circle"></i>
+                  <h3>Thank You from Bagwali!</h3>
+                  <p>Your message has been sent successfully to our studio in Bagwali, Panchkula.</p>
+                  <p>We'll get back to you within 24 hours.</p>
+                  <button class="btn btn-primary" onclick="window.location.reload()">Send Another Message</button>
+                </div>
+              `;
+            });
+          }
+        }
+      }, 3000);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Admin Panel - Madhav Prajapati Art | Handcrafted Clay Diyas</title>
+  <meta name="description" content="Admin panel for Madhav Prajapati Art - Manage products, orders, users, and settings.">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon & Manifest - NO IMAGE DEPENDENCY, PURE CSS FALLBACK -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Open Graph / Social Media - PURE CSS LOGO DESCRIPTION -->
+  <meta property="og:title" content="Admin Panel - Madhav Prajapati Art">
+  <meta property="og:description" content="Admin panel for Madhav Prajapati Art - Handcrafted clay diyas">
+  <meta property="og:type" content="website">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  <link rel="stylesheet" href="admin.css">
+  
+  <style>
+    /* ===== EMERGENCY FALLBACK STYLES ===== */
+    /* Pure CSS Logo - No Image Dependency */
+    :root {
+      --fallback-gold: #D4AF37;
+      --fallback-black: #0F0F0F;
+      --fallback-white: #FFFFFF;
+      --fallback-bg-light: #F8F9FA;
+      --fallback-bg-dark: #121212;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--fallback-bg-light);
+    }
+    
+    #admin-app {
+      min-height: 100vh;
+    }
+    
+    /* ===== PURE CSS LOADING SPINNER WITH LOGO ===== */
+    .loading-spinner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      background: var(--fallback-bg-light);
+      transition: all 0.3s ease;
+    }
+    
+    .premium-logo-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .logo-madhav-fallback {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--fallback-black);
+      text-transform: uppercase;
+      line-height: 1.2;
+      transition: color 0.3s ease;
+    }
+    
+    .logo-art-fallback {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      color: var(--fallback-gold);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-top: 4px;
+    }
+    
+    .logo-diya-fallback {
+      font-size: 32px;
+      color: var(--fallback-gold);
+      margin-top: 8px;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(212,175,55,0.1);
+      border-top-color: var(--fallback-gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* ===== DARK MODE FALLBACK ===== */
+    @media (prefers-color-scheme: dark) {
+      body, .loading-spinner {
+        background: var(--fallback-bg-dark);
+      }
+      
+      .logo-madhav-fallback {
+        color: var(--fallback-white) !important;
+      }
+      
+      .loading-spinner p {
+        color: var(--fallback-white);
+      }
+      
+      [style*="background: #F8F9FA"] {
+        background: var(--fallback-bg-dark) !important;
+      }
+      
+      [style*="color: #0F0F0F"] {
+        color: var(--fallback-white) !important;
+      }
+    }
+    
+    /* ===== FALLBACK BUTTON STYLES ===== */
+    .btn-fallback {
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-fallback:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(212,175,55,0.4);
+    }
+    
+    .btn-outline-fallback {
+      background: transparent;
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-fallback:hover {
+      background: #D4AF37;
+      color: white;
+    }
+  </style>
+</head>
+<body class="admin-body">
+  <!-- Admin App Container - Admin dashboard will be mounted here -->
+  <div id="admin-app">
+    <!-- Premium Loading Spinner with Pure CSS Logo - NO IMAGE DEPENDENCY! -->
+    <div class="loading-spinner">
+      <!-- Pure CSS Brand Logo - MADHAV PRAJAPATI (top) + ART (bottom) + Diya -->
+      <div class="premium-logo-fallback">
+        <span class="logo-madhav-fallback">MADHAV PRAJAPATI</span>
+        <span class="logo-art-fallback">ART</span>
+        <span class="logo-diya-fallback">🪔</span>
+      </div>
+      
+      <!-- Loading Spinner -->
+      <div class="spinner"></div>
+      <p style="color: #D4AF37; font-weight: 500; margin-top: 1rem;">Loading Admin Panel...</p>
+      <p style="color: #6C757D; font-size: 0.85rem; margin-top: 0.5rem;">Madhav Prajapati Art</p>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard Script - PURE CSS LOGO VERSION -->
+  <script type="module" src="admin-dashboard.js"></script>
+  
+  <!-- FALLBACK SYSTEM - PURE CSS LOGO, NO IMAGE DEPENDENCY -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // ===== PURE CSS LOGO COLORS - DYNAMIC DARK/LIGHT MODE =====
+      function updateFallbackLogoColors() {
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const madhavElements = document.querySelectorAll('.logo-madhav-fallback');
+        
+        madhavElements.forEach(el => {
+          el.style.color = isDarkMode ? '#FFFFFF' : '#0F0F0F';
+        });
+      }
+      
+      // Initial call
+      updateFallbackLogoColors();
+      
+      // Listen for dark mode changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFallbackLogoColors);
+      
+      // ===== FALLBACK TIMEOUT - 5 SECONDS =====
+      setTimeout(function() {
+        const adminApp = document.getElementById('admin-app');
+        
+        // Check if dashboard loaded
+        if (adminApp && adminApp.children.length === 1 && 
+            adminApp.children[0].className === 'loading-spinner') {
+          
+          console.warn('Admin dashboard failed to load - showing fallback');
+          
+          // Check if user is logged in and is admin
+          import('./auth.js').then(({ authService }) => {
+            authService.isAdmin().then(isAdmin => {
+              if (!isAdmin) {
+                // Not admin - redirect to home
+                window.location.href = '/';
+              } else {
+                // Show admin dashboard failed message with PURE CSS LOGO
+                const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const logoColor = isDarkMode ? '#FFFFFF' : '#0F0F0F';
+                
+                adminApp.innerHTML = `
+                  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; text-align: center; background: ${isDarkMode ? '#121212' : '#F8F9FA'};">
+                    <!-- Pure CSS Logo - NO IMAGE -->
+                    <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
+                      <span style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 2px; color: ${logoColor}; text-transform: uppercase;">MADHAV PRAJAPATI</span>
+                      <span style="font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: 4px; color: #D4AF37; text-transform: uppercase; margin-top: 4px;">ART</span>
+                      <span style="font-size: 32px; margin-top: 8px; color: #D4AF37;">🪔</span>
+                    </div>
+                    <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #DC3545; margin-bottom: 1rem;"></i>
+                    <h2 style="color: ${isDarkMode ? '#FFFFFF' : '#0F0F0F'}; margin-bottom: 1rem;">Admin Dashboard Failed to Load</h2>
+                    <p style="color: ${isDarkMode ? '#ADB5BD' : '#6C757D'}; margin-bottom: 2rem; max-width: 500px;">There was an error loading the admin dashboard. Please try refreshing the page or contact support.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                      <button onclick="location.reload()" class="btn-fallback">
+                        <i class="fas fa-sync-alt"></i> Refresh Page
+                      </button>
+                      <button onclick="window.location.href='/'" class="btn-outline-fallback">
+                        <i class="fas fa-home"></i> Return Home
+                      </button>
+                    </div>
+                  </div>
+                `;
+              }
+            }).catch(() => {
+              // Auth service failed - redirect to home
+              window.location.href = '/';
+            });
+          }).catch(() => {
+            // Fallback if auth.js fails to load - PURE CSS LOGO
+            const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const logoColor = isDarkMode ? '#FFFFFF' : '#0F0F0F';
+            
+            adminApp.innerHTML = `
+              <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; text-align: center; background: ${isDarkMode ? '#121212' : '#F8F9FA'};">
+                <!-- Pure CSS Logo - NO IMAGE -->
+                <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
+                  <span style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 2px; color: ${logoColor}; text-transform: uppercase;">MADHAV PRAJAPATI</span>
+                  <span style="font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: 4px; color: #D4AF37; text-transform: uppercase; margin-top: 4px;">ART</span>
+                  <span style="font-size: 32px; margin-top: 8px; color: #D4AF37;">🪔</span>
+                </div>
+                <i class="fas fa-shield-alt" style="font-size: 3rem; color: #D4AF37; margin-bottom: 1rem;"></i>
+                <h2 style="color: ${isDarkMode ? '#FFFFFF' : '#0F0F0F'}; margin-bottom: 1rem;">Admin Authentication Required</h2>
+                <p style="color: ${isDarkMode ? '#ADB5BD' : '#6C757D'}; margin-bottom: 2rem;">Please login with your admin credentials to access the dashboard.</p>
+                <button onclick="window.location.href='/login?redirect=admin'" class="btn-fallback" style="padding: 0.75rem 2rem;">
+                  <i class="fas fa-sign-in-alt"></i> Go to Login
+                </button>
+              </div>
+            `;
+          });
+        }
+      }, 5000); // 5 second timeout
+    })();
+  </script>
+  
+  <!-- DARK MODE SUPPORT FOR FALLBACK - PURE CSS -->
+  <script>
+    (function() {
+      // Apply dark mode colors to fallback dynamically
+      function applyDarkModeToFallback() {
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Update loading spinner logo color
+        const madhavElements = document.querySelectorAll('.logo-madhav-fallback');
+        madhavElements.forEach(el => {
+          el.style.color = isDarkMode ? '#FFFFFF' : '#0F0F0F';
+        });
+        
+        // Update loading spinner background
+        const loadingSpinners = document.querySelectorAll('.loading-spinner');
+        loadingSpinners.forEach(spinner => {
+          spinner.style.background = isDarkMode ? '#121212' : '#F8F9FA';
+        });
+        
+        // Update any inline styles in fallback
+        const style = document.createElement('style');
+        style.id = 'dynamic-dark-mode-fallback';
+        style.textContent = `
+          [style*="background: #F8F9FA"] { background: ${isDarkMode ? '#121212' : '#F8F9FA'} !important; }
+          [style*="color: #0F0F0F"] { color: ${isDarkMode ? '#FFFFFF' : '#0F0F0F'} !important; }
+          [style*="color: #6C757D"] { color: ${isDarkMode ? '#ADB5BD' : '#6C757D'} !important; }
+        `;
+        
+        // Remove old style and add new one
+        const oldStyle = document.getElementById('dynamic-dark-mode-fallback');
+        if (oldStyle) oldStyle.remove();
+        document.head.appendChild(style);
+      }
+      
+      // Initial call
+      setTimeout(applyDarkModeToFallback, 100);
+      
+      // Listen for dark mode changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyDarkModeToFallback);
+    })();
+  </script>
+</body>
+</html>

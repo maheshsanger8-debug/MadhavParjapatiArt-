@@ -1,0 +1,43 @@
+# Apache configuration for Madhav Prajapati Art
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Redirect www to non-www (choose one)
+RewriteCond %{HTTP_HOST} ^www\.madhav-prajapati-art\.web\.app [NC]
+RewriteRule ^(.*)$ https://madhav-prajapati-art.web.app/$1 [L,R=301]
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Custom error pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# Block access to sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|bak|config|env|json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Block access to hidden directories
+RewriteRule "(^|/)\." - [F]
+
+# Cache control for static assets
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|svg|webp)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

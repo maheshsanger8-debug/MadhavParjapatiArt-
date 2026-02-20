@@ -1,0 +1,191 @@
+# robots.txt for Madhav Prajapati Art
+# https://madhav-prajapati-art.web.app
+
+# Allow all crawlers full access
+User-agent: *
+Allow: /
+
+# Crawl delay for polite crawling (optional)
+# Crawl-delay: 1
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /profile/
+Disallow: /account/
+Disallow: /login
+Disallow: /signup
+Disallow: /logout
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /api/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /drafts/
+Disallow: /preview/
+Disallow: /*?*
+Disallow: /*&*
+Disallow: /?add-to-cart=*
+Disallow: /?remove-from-cart=*
+Disallow: /*?orderby=*
+Disallow: /*?filter=*
+Disallow: /*?page=*&*
+
+# Allow specific dynamic content
+Allow: /products?page=
+Allow: /products?category=
+Allow: /search?q=
+
+# Disallow temporary or session-based URLs
+Disallow: /*sessionid=*
+Disallow: /*ref=*
+Disallow: /*utm_*
+
+# Specific user-agent rules for different crawlers
+
+# Googlebot (already covered by *, but specific rules)
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /*?
+
+# Googlebot-Image (for image optimization)
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /admin/
+Disallow: /assets/icons/
+Disallow: /images/private/
+
+# Googlebot-News (if you have news/blog section)
+User-agent: Googlebot-News
+Allow: /blog/
+Allow: /news/
+Allow: /updates/
+
+# Googlebot-Video (if you have videos)
+User-agent: Googlebot-Video
+Allow: /videos/
+Allow: /media/
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /*?
+
+# Yahoo! Slurp
+User-agent: Slurp
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /*?
+
+# Baidu Spider
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /*?
+
+# Yandex Bot
+User-agent: YandexBot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /*?
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content
+
+# DuckDuckGo Bot
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /*?
+
+# Facebook Crawler (for OG tags)
+User-agent: facebookexternalhit
+Allow: /
+Allow: /*?*
+
+# Twitter Crawler (for cards)
+User-agent: Twitterbot
+Allow: /
+Allow: /*?*
+
+# Pinterest Crawler
+User-agent: Pinterestbot
+Allow: /
+Allow: /*?*
+Allow: /images/
+
+# LinkedIn Crawler
+User-agent: LinkedInBot
+Allow: /
+Allow: /*?*
+
+# Ahrefs Bot (SEO tool)
+User-agent: AhrefsBot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Crawl-delay: 2
+
+# SEMrush Bot (SEO tool)
+User-agent: SEMrushBot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Crawl-delay: 2
+
+# Moz Bot (SEO tool)
+User-agent: rogerbot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Crawl-delay: 2
+
+# Screaming Frog (SEO tool)
+User-agent: Screaming Frog SEO Spider
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+
+# ChatGPT/OpenAI Bot
+User-agent: GPTBot
+Disallow: /
+User-agent: ChatGPT-User
+Disallow: /
+
+# Common AI crawlers (optional - block if you don't want AI training)
+User-agent: anthropic-ai
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Claude-Web
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+User-agent: Common Crawl
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: Diffbot
+Disallow: /
+User-agent: ImagesiftBot
+Disallow: /
+
+# Site maps
+Sitemap: https://madhav-prajapati-art.web.app/sitemap.xml
+
+# Alternative sitemap formats (if you have them)
+Sitemap: https://madhav-prajapati-art.web.app/sitemap_index.xml
+Sitemap: https://madhav-prajapati-art.web.app/sitemap_products.xml
+Sitemap: https://madhav-prajapati-art.web.app/sitemap_categories.xml
+Sitemap: https://madhav-prajapati-art.web.app/sitemap_pages.xml
+
+# Host directive (for Yandex)
+Host: https://madhav-prajapati-art.web.app

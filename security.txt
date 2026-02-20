@@ -1,0 +1,9 @@
+# Security contact information
+Contact: mailto:security@madhav-prajapati-art.web.app
+Encryption: https://madhav-prajapati-art.web.app/pgp-key.txt
+Acknowledgments: https://madhav-prajapati-art.web.app/hall-of-fame
+Preferred-Languages: en, hi
+Canonical: https://madhav-prajapati-art.web.app/.well-known/security.txt
+Policy: https://madhav-prajapati-art.web.app/security-policy
+Hiring: https://madhav-prajapati-art.web.app/careers
+Expires: 2025-01-01T00:00:00.000Z

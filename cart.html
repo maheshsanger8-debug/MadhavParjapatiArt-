@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Shopping Cart - Madhav Prajapati Art | Handcrafted Clay Diyas</title>
+  <meta name="description" content="Review and manage your shopping cart at Madhav Prajapati Art. Handcrafted clay diyas for every occasion.">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="madhav-logo.svg">
+  <link rel="apple-touch-icon" href="madhav-logo.svg">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Shopping Cart - Madhav Prajapati Art">
+  <meta property="og:description" content="Review your handcrafted clay diyas before checkout.">
+  <meta property="og:image" content="madhav-logo.svg">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="120">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madhavprajapati.art/cart">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Shopping Cart - Madhav Prajapati Art">
+  <meta name="twitter:description" content="Review your handcrafted clay diyas before checkout.">
+  <meta name="twitter:image" content="madhav-logo.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  
+  <style>
+    /* ===== CART PAGE SPECIFIC STYLES ===== */
+    
+    /* Cart Page Container */
+    .cart-page {
+      min-height: 60vh;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .cart-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .cart-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0F0F0F;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .cart-header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+    
+    /* Cart Layout */
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 2rem;
+      align-items: start;
+    }
+    
+    /* Cart Items Section */
+    .cart-items-section {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    
+    .cart-items-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #E9ECEF;
+    }
+    
+    .cart-items-header h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0F0F0F;
+    }
+    
+    .cart-items-count {
+      background: rgba(212,175,55,0.1);
+      color: #D4AF37;
+      padding: 0.25rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    
+    /* Cart Items Container */
+    .cart-items-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-height: 300px;
+    }
+    
+    /* Empty Cart State */
+    .empty-cart {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    
+    .empty-cart i {
+      font-size: 5rem;
+      color: #D4AF37;
+      opacity: 0.3;
+      margin-bottom: 1.5rem;
+    }
+    
+    .empty-cart h3 {
+      font-size: 1.5rem;
+      color: #0F0F0F;
+      margin-bottom: 0.5rem;
+    }
+    
+    .empty-cart p {
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    .empty-cart .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .empty-cart .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+    }
+    
+    /* Cart Sidebar */
+    .cart-sidebar {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,175,55,0.1);
+      position: sticky;
+      top: 100px;
+    }
+    
+    .order-summary {
+      margin-bottom: 2rem;
+    }
+    
+    .order-summary h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #E9ECEF;
+    }
+    
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: #666;
+    }
+    
+    .summary-row.total {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 2px solid #E9ECEF;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0F0F0F;
+    }
+    
+    .summary-row.total span:last-child {
+      color: #D4AF37;
+    }
+    
+    /* Promo Code */
+    .promo-code {
+      margin-bottom: 1.5rem;
+    }
+    
+    .promo-input-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .promo-input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .promo-btn {
+      padding: 0.75rem 1.5rem;
+      background: #0F0F0F;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .promo-btn:hover {
+      background: #D4AF37;
+    }
+    
+    /* Checkout Button */
+    .checkout-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #D4AF37, #FF8C42);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    
+    .checkout-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+    }
+    
+    .checkout-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    /* Continue Shopping Link */
+    .continue-shopping {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    
+    .continue-shopping:hover {
+      color: #D4AF37;
+    }
+    
+    /* Cart Actions */
+    .cart-actions {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #E9ECEF;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .clear-cart-btn {
+      background: none;
+      border: none;
+      color: #DC3545;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    .clear-cart-btn:hover {
+      background: rgba(220,53,69,0.1);
+    }
+    
+    .update-cart-btn {
+      background: none;
+      border: 1px solid #D4AF37;
+      color: #D4AF37;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    
+    .update-cart-btn:hover {
+      background: #D4AF37;
+      color: white;
+    }
+    
+    /* Saved for Later Section */
+    .saved-items-section {
+      margin-top: 3rem;
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    
+    .saved-items-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .saved-items-header h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0F0F0F;
+    }
+    
+    .saved-items-count {
+      background: rgba(212,175,55,0.1);
+      color: #D4AF37;
+      padding: 0.25rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    
+    .saved-items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    /* Loading Spinner */
+    .loading-spinner {
+      text-align: center;
+      padding: 3rem;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(212,175,55,0.1);
+      border-top-color: #D4AF37;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      .cart-items-section,
+      .cart-sidebar,
+      .saved-items-section {
+        background: #1A1A1A;
+        border-color: rgba(212,175,55,0.1);
+      }
+      
+      .cart-header h1,
+      .cart-items-header h2,
+      .order-summary h3,
+      .saved-items-header h3,
+      .empty-cart h3 {
+        color: #FFFFFF;
+      }
+      
+      .cart-header p,
+      .empty-cart p,
+      .summary-row,
+      .continue-shopping {
+        color: #CCCCCC;
+      }
+      
+      .cart-items-header,
+      .order-summary h3,
+      .summary-row.total {
+        border-color: #2D2D2D;
+      }
+      
+      .promo-input {
+        background: #2D2D2D;
+        border-color: #404040;
+        color: #FFFFFF;
+      }
+      
+      .promo-btn {
+        background: #2D2D2D;
+        color: #FFFFFF;
+      }
+      
+      .promo-btn:hover {
+        background: #D4AF37;
+        color: #0F0F0F;
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .cart-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .cart-sidebar {
+        position: static;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .cart-page {
+        padding: 1rem;
+      }
+      
+      .cart-header h1 {
+        font-size: 2rem;
+      }
+      
+      .cart-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .clear-cart-btn,
+      .update-cart-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .saved-items-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- App will be mounted here -->
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p style="color: #D4AF37;">Loading your cart...</p>
+    </div>
+  </div>
+  
+  <!-- Main Script -->
+  <script type="module" src="app.js"></script>
+  
+  <!-- Fallback Script -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // Fallback if app.js fails to load
+      setTimeout(function() {
+        const app = document.getElementById('app');
+        if (app && app.children.length === 1 && app.children[0].className === 'loading-spinner') {
+          console.warn('App failed to load - showing fallback cart page');
+          
+          // Check if we have cart data in localStorage
+          let cartItems = [];
+          try {
+            const savedCart = localStorage.getItem('cart');
+            cartItems = savedCart ? JSON.parse(savedCart) : [];
+          } catch (e) {
+            console.error('Error loading cart:', e);
+          }
+          
+          if (cartItems.length === 0) {
+            // Empty cart fallback
+            app.innerHTML = `
+              <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+                <div style="text-align: center; padding: 4rem 2rem;">
+                  <i class="fas fa-shopping-bag" style="font-size: 5rem; color: #D4AF37; opacity: 0.3; margin-bottom: 1.5rem;"></i>
+                  <h2 style="font-size: 2rem; color: #0F0F0F; margin-bottom: 1rem;">Your Cart is Empty</h2>
+                  <p style="color: #666; margin-bottom: 2rem;">Looks like you haven't added any items to your cart yet.</p>
+                  <a href="/#products" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 2rem; background: linear-gradient(135deg, #D4AF37, #FF8C42); color: white; text-decoration: none; border-radius: 50px; font-weight: 600;">Start Shopping</a>
+                </div>
+              </div>
+            `;
+          } else {
+            // Show basic cart fallback
+            app.innerHTML = `
+              <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+                <h1 style="font-size: 2rem; margin-bottom: 2rem;">Your Cart</h1>
+                <p>Your cart has ${cartItems.length} items. Please enable JavaScript for full functionality.</p>
+                <a href="/#products" style="color: #D4AF37;">Continue Shopping</a>
+              </div>
+            `;
+          }
+        }
+      }, 3000);
+    })();
+  </script>
+</body>
+</html>
